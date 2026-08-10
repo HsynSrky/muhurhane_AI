@@ -1,0 +1,55 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#8B5A2B; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+      .fill { fill:#8B5A2B; }
+    </style>
+  </defs>
+  <circle cx="200" cy="200" r="190" class="line" stroke-width="3"/>
+
+  <!-- Sun rays from lion's back -->
+  <g class="line">
+    <path d="M200 60 L210 100 L200 90 L190 100 Z" class="fill"/>
+    <path d="M240 70 L245 110 L235 105 L232 95 Z" class="fill"/>
+    <path d="M160 70 L155 110 L165 105 L168 95 Z" class="fill"/>
+    <path d="M275 95 L270 130 L262 120 L265 110 Z" class="fill"/>
+    <path d="M125 95 L130 130 L138 120 L135 110 Z" class="fill"/>
+  </g>
+
+  <!-- Sun disc / face -->
+  <circle cx="200" cy="130" r="38" class="line"/>
+  <circle cx="200" cy="130" r="38" fill="none" stroke="#8B5A2B" stroke-width="2" stroke-dasharray="4 6"/>
+  <circle cx="187" cy="125" r="4" class="fill"/>
+  <circle cx="213" cy="125" r="4" class="fill"/>
+  <path d="M185 145 Q200 155 215 145" class="line" stroke-width="3"/>
+
+  <!-- Lion body walking, in profile -->
+  <path d="M120 260
+           C110 240 115 215 140 205
+           C150 175 175 165 200 168
+           C215 168 222 178 222 190
+           L222 205
+           C245 208 260 222 262 245
+           C264 258 258 268 245 270
+           L245 300 L235 300 L233 275
+           L200 275 L198 300 L188 300 L186 272
+           C160 270 138 262 128 285
+           L118 285
+           C112 280 112 268 120 260 Z" class="line"/>
+
+  <!-- Lion mane -->
+  <path d="M195 170 C185 160 185 150 195 145 C200 155 205 155 210 148
+           C218 155 218 165 210 172 C205 165 200 165 195 170Z" class="line"/>
+
+  <!-- Legs -->
+  <path d="M140 260 L135 295" class="line"/>
+  <path d="M155 262 L150 298" class="line"/>
+  <path d="M225 260 L228 296" class="line"/>
+  <path d="M245 258 L250 294" class="line"/>
+
+  <!-- Tail curling up -->
+  <path d="M118 270 C95 265 85 240 100 220 C108 210 118 215 115 225" class="line"/>
+
+  <!-- Ground line -->
+  <path d="M90 300 Q200 310 310 300" class="line" stroke-width="2"/>
+</svg>

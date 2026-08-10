@@ -1,0 +1,313 @@
+{
+ "generatedAt": "2026-08-09T21:26:52+00:00",
+ "generator": "backend/scripts/normalize_motifs.py",
+ "viewBox": [
+  0,
+  0,
+  400,
+  400
+ ],
+ "period": "Anadolu Selçuklu",
+ "motifs": [
+  {
+   "id": "3.1",
+   "slug": "selcuklu-yildizi",
+   "slot": "frame",
+   "name": "Selçuklu Yıldızı",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Rub el-Hizb · iki kareden doğan sekiz köşeli yıldız.",
+   "history": "Biri 45 derece döndürülmüş iki karenin üst üste binmesiyle oluşan sekiz köşeli yıldız, Selçuklu geometrik süslemesinin temel taşıdır. Sekiz köşe, geleneksel yorumda sabır, merhamet, doğruluk, sır tutma, sadakat, cömertlik, şükür ve ilim olmak üzere sekiz erdeme karşılık gelir. Kubadabad çinilerinden Karatay Medresesi kubbesine kadar geniş bir alanda karşımıza çıkar.",
+   "repeat": 20,
+   "source": "assets/selcuklu/3.1_Selcuklu_Yildizi.svg",
+   "bbox": [
+    53.25,
+    53.25,
+    293.5,
+    293.5
+   ],
+   "tierCount": 1,
+   "shapeCount": 5,
+   "body": "<path class=\"s0 fn\" d=\"M200 55 L269 90 L345 90 L310 166 L345 242 L269 242 L200 345 L131 242 L55 242 L90 166 L55 90 L131 90 Z\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect class=\"s0 fn\" x=\"130\" y=\"130\" width=\"140\" height=\"140\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" transform=\"rotate(45 200 200)\"/><rect class=\"s0 fn\" x=\"130\" y=\"130\" width=\"140\" height=\"140\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s0 fn\" cx=\"200\" cy=\"200\" r=\"22\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"sn f0\" cx=\"200\" cy=\"200\" r=\"8\"/>"
+  },
+  {
+   "id": "3.2",
+   "slug": "kocboynuzu",
+   "slot": "frame",
+   "name": "Koçboynuzu",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Bereket, güç ve kahramanlık · çift sarmal.",
+   "history": "Anadolu halı ve kilimlerinin en yaygın motifi olan koçboynuzu, bereketi, gücü, kahramanlığı ve erkekliği simgeler. Çift sarmal biçimi, koçun boynuzlarının stilize edilmiş halidir. Orta Asya'dan Anadolu'ya kesintisiz taşınmış en eski Türk motiflerinden biridir; mezar taşlarından dokumalara kadar her yüzeyde görülür.",
+   "repeat": 20,
+   "source": "assets/selcuklu/3.2_Kocboynuzu_Motifi.svg",
+   "bbox": [
+    126.5,
+    76.5,
+    147.0,
+    227.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 4,
+   "body": "<line class=\"s0 fn\" x1=\"200\" y1=\"200\" x2=\"200\" y2=\"300\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 200 C160 190 130 160 130 120 C130 95 150 80 170 90 C185 98 185 118 168 125 C155 130 145 120 150 108\" stroke-width=\"7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 200 C240 190 270 160 270 120 C270 95 250 80 230 90 C215 98 215 118 232 125 C245 130 255 120 250 108\" stroke-width=\"7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"sn f0\" cx=\"200\" cy=\"200\" r=\"10\"/>"
+  },
+  {
+   "id": "3.3",
+   "slug": "hayat-agaci",
+   "slot": "frame",
+   "name": "Hayat Ağacı",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Gök ile yeri bağlayan kozmik eksen.",
+   "history": "Hayat ağacı, gökyüzü ile yeraltını birbirine bağlayan kozmik eksendir. Kökleri yeraltına, dalları göğe uzanır; tepesinde çoğu zaman bir kuş ya da çift başlı kartal, dibinde ise koruyucu hayvan çifti bulunur. Türk mitolojisinde \"ulu kayın\" olarak anılan bu motif, Selçuklu taş işçiliğinde ve mezar taşlarında sürekliliğin ve soyun devamının işareti olarak işlenmiştir.",
+   "repeat": 12,
+   "source": "assets/selcuklu/3.3_Hayat_Agaci.svg",
+   "bbox": [
+    82.0,
+    31.0,
+    236.0,
+    325.0
+   ],
+   "tierCount": 3,
+   "shapeCount": 29,
+   "body": "<path class=\"s1 fn\" d=\"M200 80 L200 110\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s1 fn\" d=\"M200 90 C160 85 140 65 135 45\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s1 fn\" d=\"M200 90 C240 85 260 65 265 45\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s1 fn\" cx=\"132\" cy=\"42\" r=\"8\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s1 fn\" cx=\"268\" cy=\"42\" r=\"8\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s1 fn\" d=\"M170 100 C130 95 100 105 85 130\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s1 fn\" d=\"M230 100 C270 95 300 105 315 130\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line class=\"s0 fn\" x1=\"200\" y1=\"110\" x2=\"200\" y2=\"260\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 140 C170 130 150 110 145 90\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 140 C230 130 250 110 255 90\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 170 C165 165 140 150 130 130\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 170 C235 165 260 150 270 130\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 200 C168 198 145 185 135 165\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 200 C232 198 255 185 265 165\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><ellipse class=\"s0 fn\" cx=\"140\" cy=\"88\" rx=\"14\" ry=\"8\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" transform=\"rotate(-30 140 88)\"/><ellipse class=\"s0 fn\" cx=\"260\" cy=\"88\" rx=\"14\" ry=\"8\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" transform=\"rotate(30 260 88)\"/><ellipse class=\"s0 fn\" cx=\"125\" cy=\"128\" rx=\"14\" ry=\"8\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" transform=\"rotate(-30 125 128)\"/><ellipse class=\"s0 fn\" cx=\"275\" cy=\"128\" rx=\"14\" ry=\"8\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" transform=\"rotate(30 275 128)\"/><ellipse class=\"s0 fn\" cx=\"130\" cy=\"163\" rx=\"14\" ry=\"8\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" transform=\"rotate(-30 130 163)\"/><ellipse class=\"s0 fn\" cx=\"270\" cy=\"163\" rx=\"14\" ry=\"8\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" transform=\"rotate(30 270 163)\"/><path class=\"s0 fn\" d=\"M200 260 C180 280 160 285 140 300\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 260 C220 280 240 285 260 300\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 260 L200 310\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><ellipse class=\"s2 fn\" cx=\"140\" cy=\"335\" rx=\"30\" ry=\"18\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s2 fn\" cx=\"115\" cy=\"325\" r=\"10\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s2 fn\" d=\"M115 320 L100 315\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><ellipse class=\"s2 fn\" cx=\"260\" cy=\"335\" rx=\"30\" ry=\"18\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s2 fn\" cx=\"285\" cy=\"325\" r=\"10\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s2 fn\" d=\"M285 320 L300 315\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+  },
+  {
+   "id": "3.4",
+   "slug": "rumi-sonsuzluk-dugumu",
+   "slot": "frame",
+   "name": "Rumi Sonsuzluk Düğümü",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Başı ve sonu olmayan örgü · süreklilik.",
+   "history": "Başlangıcı ve sonu ayırt edilemeyen, kendi üzerine örülen sonsuz düğüm, Selçuklu geometrik bezemesinin felsefi karşılığıdır: sonsuzluk, süreklilik ve birlik. Dört katlı simetriyle örülen şerit, alttan-üstten geçişlerle dokunmuş izlenimi verir. Selçuklu kapı kanatlarında ve minber işçiliğinde yaygındır.",
+   "repeat": 16,
+   "source": "assets/selcuklu/3.4_Rumi_Sonsuzluk_Dugumu.svg",
+   "bbox": [
+    57.5,
+    57.5,
+    285.0,
+    285.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 5,
+   "body": "<path class=\"s0 fn\" d=\"M200 60 C260 60 300 100 300 150 C300 190 270 210 240 200 C260 195 270 175 260 155 C250 135 220 135 210 155 C200 175 210 195 230 200 C200 210 170 195 170 165 C170 145 190 135 210 140\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 340 C140 340 100 300 100 250 C100 210 130 190 160 200 C140 205 130 225 140 245 C150 265 180 265 190 245 C200 225 190 205 170 200 C200 190 230 205 230 235 C230 255 210 265 190 260\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M60 200 C60 140 100 100 150 100 C190 100 210 130 200 160 C195 140 175 130 155 140 C135 150 135 180 155 190 C175 200 195 190 200 170 C210 200 195 230 165 230 C145 230 135 210 140 190\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M340 200 C340 260 300 300 250 300 C210 300 190 270 200 240 C205 260 225 270 245 260 C265 250 265 220 245 210 C225 200 205 210 200 230 C190 200 205 170 235 170 C255 170 265 190 260 210\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><rect class=\"s0 fn\" x=\"185\" y=\"185\" width=\"30\" height=\"30\" rx=\"4\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+  },
+  {
+   "id": "3.5",
+   "slug": "muhur-i-suleyman",
+   "slot": "frame",
+   "name": "Mühür-i Süleyman",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Altı köşeli yıldız · hikmet ve tılsım.",
+   "history": "İki eşkenar üçgenin iç içe geçmesiyle oluşan altı köşeli yıldız, Süleyman Peygamber'in mührü olarak bilinir ve İslam sanatında hikmet, tılsım ve koruma anlamı taşır. Selçuklu ahşap tavan göbeklerinde, çini panolarında ve mezar taşlarında merkeze konan sekiz loblu rozetle birlikte işlenir.",
+   "repeat": 20,
+   "source": "assets/selcuklu/3.5_Muhur_i_Suleyman_Rozet.svg",
+   "bbox": [
+    81.5,
+    68.5,
+    237.0,
+    263.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 11,
+   "body": "<path class=\"s0 fn\" d=\"M200 70 L317 265 L83 265 Z\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 330 L83 135 L317 135 Z\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><ellipse class=\"s0 fn\" cx=\"200\" cy=\"150\" rx=\"14\" ry=\"30\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><ellipse class=\"s0 fn\" cx=\"200\" cy=\"250\" rx=\"14\" ry=\"30\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><ellipse class=\"s0 fn\" cx=\"150\" cy=\"200\" rx=\"30\" ry=\"14\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><ellipse class=\"s0 fn\" cx=\"250\" cy=\"200\" rx=\"30\" ry=\"14\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><ellipse class=\"s0 fn\" cx=\"165\" cy=\"165\" rx=\"14\" ry=\"30\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" transform=\"rotate(45 165 165)\"/><ellipse class=\"s0 fn\" cx=\"235\" cy=\"165\" rx=\"14\" ry=\"30\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" transform=\"rotate(-45 235 165)\"/><ellipse class=\"s0 fn\" cx=\"165\" cy=\"235\" rx=\"14\" ry=\"30\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" transform=\"rotate(-45 165 235)\"/><ellipse class=\"s0 fn\" cx=\"235\" cy=\"235\" rx=\"14\" ry=\"30\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" transform=\"rotate(45 235 235)\"/><circle class=\"s0 fn\" cx=\"200\" cy=\"200\" r=\"14\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+  },
+  {
+   "id": "1.1",
+   "slug": "cift-basli-kartal",
+   "slot": "symbol",
+   "name": "Çift Başlı Kartal",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Hükümdarlık arması; iki yöne birden hâkimiyet.",
+   "history": "Çift başlı kartal, Anadolu Selçuklu Devleti'nin en tanınan hükümdarlık amblemidir. İki başın doğuya ve batıya bakması, hükümdarın her iki yöne birden hâkim olduğu inancını taşır. Konya surlarında, Divriği Ulu Camii taş işçiliğinde ve Selçuklu sikkelerinde görülür; sonraki yüzyıllarda birçok Türk beyliğine ve devlet armasına geçmiştir. Açılmış kanatlar koruma, pençedeki küçük madalyon ise devletin mührünü simgeler.",
+   "repeat": null,
+   "source": "assets/selcuklu/1.1_Cift_Basli_Kartal.svg",
+   "bbox": [
+    38.0,
+    50.0,
+    324.0,
+    287.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 22,
+   "body": "<path class=\"s0 fn\" d=\"M200 150 C215 150 225 165 222 185 L222 250 C222 270 212 285 200 288 C188 285 178 270 178 250 L178 185 C175 165 185 150 200 150Z\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M185 285 L165 330\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M195 288 L188 335\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M205 288 L212 335\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M215 285 L235 330\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M190 260 L182 285\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M210 260 L218 285\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s0 fn\" cx=\"200\" cy=\"292\" r=\"8\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M180 165 C150 155 125 135 115 105\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s0 fn\" cx=\"105\" cy=\"95\" r=\"20\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M85 95 C70 92 60 98 58 108 C62 116 74 118 85 112\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"sn f0\" cx=\"112\" cy=\"90\" r=\"3\"/><path class=\"s0 fn\" d=\"M100 78 C95 65 100 55 112 52\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M220 165 C250 155 275 135 285 105\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s0 fn\" cx=\"295\" cy=\"95\" r=\"20\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M315 95 C330 92 340 98 342 108 C338 116 326 118 315 112\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"sn f0\" cx=\"288\" cy=\"90\" r=\"3\"/><path class=\"s0 fn\" d=\"M300 78 C305 65 300 55 288 52\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M178 200 C120 190 75 165 55 120 C85 138 115 148 145 145 C110 158 85 158 62 148 C90 172 125 185 170 180\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M178 235 C115 240 65 222 40 180 C72 195 105 200 135 190 C108 208 82 210 60 200 C92 220 130 225 165 215\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M222 200 C280 190 325 165 345 120 C315 138 285 148 255 145 C290 158 315 158 338 148 C310 172 275 185 230 180\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M222 235 C285 240 335 222 360 180 C328 195 295 200 265 190 C292 208 318 210 340 200 C308 220 270 225 235 215\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+  },
+  {
+   "id": "1.2",
+   "slug": "sir-i-hursid",
+   "slot": "symbol",
+   "name": "Şir-i Hurşid",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Aslan ve güneş; kudretin göksel meşruiyeti.",
+   "history": "\"Aslan ve Güneş\" anlamına gelen Şir-i Hurşid, İran-Türk ortak sembol dağarcığının en güçlü kompozisyonlarından biridir. Yürüyen aslan dünyevi gücü, sırtından yükselen güneş kursu ise bu gücün göksel kaynağını temsil eder. Anadolu Selçuklu sikkelerinde, özellikle II. Gıyaseddin Keyhüsrev döneminde basılmış paralarda görülür ve hükümdarın yeryüzündeki yetkisinin ilahi onaya dayandığını ilan eder.",
+   "repeat": null,
+   "source": "assets/selcuklu/1.2_Sir-i_Hursid.svg",
+   "bbox": [
+    83.0,
+    58.0,
+    229.0,
+    254.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 18,
+   "body": "<path class=\"s0 f0\" d=\"M200 60 L210 100 L200 90 L190 100 Z\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 f0\" d=\"M240 70 L245 110 L235 105 L232 95 Z\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 f0\" d=\"M160 70 L155 110 L165 105 L168 95 Z\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 f0\" d=\"M275 95 L270 130 L262 120 L265 110 Z\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 f0\" d=\"M125 95 L130 130 L138 120 L135 110 Z\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s0 fn\" cx=\"200\" cy=\"130\" r=\"38\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s0 fn\" cx=\"200\" cy=\"130\" r=\"38\" stroke-width=\"2\" stroke-dasharray=\"4 6\"/><circle class=\"sn f0\" cx=\"187\" cy=\"125\" r=\"4\"/><circle class=\"sn f0\" cx=\"213\" cy=\"125\" r=\"4\"/><path class=\"s0 fn\" d=\"M185 145 Q200 155 215 145\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M120 260 C110 240 115 215 140 205 C150 175 175 165 200 168 C215 168 222 178 222 190 L222 205 C245 208 260 222 262 245 C264 258 258 268 245 270 L245 300 L235 300 L233 275 L200 275 L198 300 L188 300 L186 272 C160 270 138 262 128 285 L118 285 C112 280 112 268 120 260 Z\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M195 170 C185 160 185 150 195 145 C200 155 205 155 210 148 C218 155 218 165 210 172 C205 165 200 165 195 170Z\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M140 260 L135 295\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M155 262 L150 298\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M225 260 L228 296\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M245 258 L250 294\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M118 270 C95 265 85 240 100 220 C108 210 118 215 115 225\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M90 300 Q200 310 310 300\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+  },
+  {
+   "id": "1.3",
+   "slug": "cifte-ejderha",
+   "slot": "symbol",
+   "name": "Çifte Ejderha",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Eşiklerin ve zamanın bekçisi, düğümlü ejder çifti.",
+   "history": "Karşılıklı duran ve kuyrukları merkezde düğümlenen iki ejderha, Selçuklu ikonografisinde eşiklerin ve geçişlerin koruyucusudur. Kapı tokmaklarında, kervansaray portallerinde ve Cizre Ulu Camii'nin ünlü tokmaklarında karşımıza çıkar. Düğümlenen kuyruklar zamanın döngüselliğini, açık çeneler ise kötülüğü yutan koruyuculuğu anlatır.",
+   "repeat": null,
+   "source": "assets/selcuklu/1.3_Cifte_Ejderha.svg",
+   "bbox": [
+    35.5,
+    92.5,
+    329.0,
+    215.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 16,
+   "body": "<circle class=\"s0 fn\" cx=\"200\" cy=\"200\" r=\"30\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M80 200 C80 150 110 110 160 100 C185 95 205 105 210 125 C213 140 202 150 188 148 C178 146 172 138 178 130\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M80 200 C65 195 55 205 58 218 C60 228 72 232 82 226 C90 222 90 210 80 200Z\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M58 210 C48 205 40 208 38 216 C40 222 48 224 55 220\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M75 190 C72 178 78 170 88 172\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M90 230 C95 245 115 250 125 240\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M120 145 C135 150 140 165 130 175\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M175 180 C182 190 182 200 175 208\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M320 200 C320 250 290 290 240 300 C215 305 195 295 190 275 C187 260 198 250 212 252 C222 254 228 262 222 270\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M320 200 C335 205 345 195 342 182 C340 172 328 168 318 174 C310 178 310 190 320 200Z\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M342 190 C352 195 360 192 362 184 C360 178 352 176 345 180\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M325 210 C328 222 322 230 312 228\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M310 170 C305 155 285 150 275 160\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M280 255 C265 250 260 235 270 225\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M225 220 C218 210 218 200 225 192\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"sn f0\" cx=\"200\" cy=\"200\" r=\"10\"/>"
+  },
+  {
+   "id": "1.4",
+   "slug": "selcuklu-sfenksi",
+   "slot": "symbol",
+   "name": "Selçuklu Sfenksi",
+   "period": "Anadolu Selçuklu",
+   "blurb": "İnsan başlı kanatlı koruyucu; saray çinilerinin bekçisi.",
+   "history": "İnsan başlı, aslan gövdeli, kanatlı sfenks figürü Kubadabad Sarayı'nın sekiz köşeli yıldız çinilerinde en görkemli halini bulur. Selçuklu sarayında sfenks bir yabancı değil, tılsımlı bir koruyucudur: taçlı başı hükümdarın aklını, aslan gövdesi cesaretini, kanatları ise göksel korumayı temsil eder. Özgün çinide figür sekiz köşeli yıldız kaidesi üzerinde durur; mühürde bu kaide kaldırılıp figür merkeze alınmıştır.",
+   "repeat": null,
+   "source": "assets/selcuklu/1.4_Selcuklu_Sfenksi.svg",
+   "bbox": [
+    123.0,
+    86.0,
+    174.0,
+    218.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 14,
+   "body": "<path class=\"s0 fn\" d=\"M140 250 C135 220 150 200 175 198 L225 198 C250 200 265 220 260 250 C260 265 250 272 235 270 L165 270 C150 272 140 262 140 250Z\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M170 268 L165 300\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M190 270 L188 302\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M210 270 L212 302\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M230 268 L235 300\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M150 210 C130 195 125 170 140 150 C148 165 155 170 150 185 C160 178 165 165 162 150 C172 165 172 185 158 200\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M250 210 C270 195 275 170 260 150 C252 165 245 170 250 185 C240 178 235 165 238 150 C228 165 228 185 242 200\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M185 198 L182 165 L218 165 L215 198\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s0 fn\" cx=\"200\" cy=\"140\" r=\"30\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"sn f0\" cx=\"190\" cy=\"135\" r=\"3.5\"/><circle class=\"sn f0\" cx=\"210\" cy=\"135\" r=\"3.5\"/><path class=\"s0 fn\" d=\"M188 152 Q200 160 212 152\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M172 118 L178 95 L188 112 L200 88 L212 112 L222 95 L228 118 Z\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M260 255 C285 250 295 225 280 205 C272 195 262 200 265 212\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+  },
+  {
+   "id": "1.5",
+   "slug": "simurg-anka",
+   "slot": "symbol",
+   "name": "Simurg / Anka",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Küllerinden doğan devlet; ölümsüzlük kuşu.",
+   "history": "Simurg, Türk ve İran mitolojisinin ortak kuşudur; Anadolu'da Anka adıyla anılır. Küllerinden yeniden doğması, devletin ve hanedanın sürekliliğine dair güçlü bir metafordur. Selçuklu taş kabartmalarında ve Kubadabad çinilerinde çoğunlukla cepheden, kanatları açık ve kuyruğu bitkisel kıvrımlarla stilize edilmiş biçimde işlenir.",
+   "repeat": null,
+   "source": "assets/selcuklu/1.5_Simurg_Anka.svg",
+   "bbox": [
+    48.0,
+    88.0,
+    304.0,
+    270.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 19,
+   "body": "<ellipse class=\"s0 fn\" cx=\"200\" cy=\"220\" rx=\"35\" ry=\"50\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s0 fn\" cx=\"200\" cy=\"150\" r=\"22\" stroke-width=\"4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M222 150 C240 148 250 155 248 165 C240 162 228 160 222 155Z\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"sn f0\" cx=\"208\" cy=\"145\" r=\"3\"/><path class=\"s0 fn\" d=\"M195 130 C190 110 195 95 205 90\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M205 128 C205 105 215 92 228 90\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M185 132 C178 115 182 100 195 95\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M170 200 C120 190 85 165 70 125 C95 140 120 148 140 145 C120 155 105 155 90 148 C110 168 135 178 165 178\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M165 220 C110 225 70 210 50 175 C78 185 105 188 130 180 C110 195 90 197 72 190 C100 205 130 208 158 200\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M230 200 C280 190 315 165 330 125 C305 140 280 148 260 145 C280 155 295 155 310 148 C290 168 265 178 235 178\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M235 220 C290 225 330 210 350 175 C322 185 295 188 270 180 C290 195 310 197 328 190 C300 205 270 208 242 200\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M190 265 C180 300 165 325 145 340\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 270 C198 305 192 330 180 350\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M210 265 C220 300 235 325 255 340\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s0 fn\" cx=\"145\" cy=\"340\" r=\"6\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s0 fn\" cx=\"180\" cy=\"350\" r=\"6\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle class=\"s0 fn\" cx=\"255\" cy=\"340\" r=\"6\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M188 265 L182 290\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M212 265 L218 290\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+  },
+  {
+   "id": "2.1",
+   "slug": "kayi-damgasi",
+   "slot": "tribe",
+   "name": "Kayı Damgası",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Bozok kolu · \"sağlam, güçlü\" · Osmanlı'nın çıktığı boy.",
+   "history": "Oğuz Kağan Destanı'na göre Gün Han'ın oğlu Kayı'dan gelen boy, Bozok kolunun en kıdemlisidir. Adı \"sağlam, güçlü, kudret sahibi\" anlamındadır. Damgası iki dikey çizgi arasında karşılıklı iki oktan oluşur ve \"IYI\" biçiminde okunur. Kayı boyu, Anadolu'ya göçen Oğuz boyları arasında Söğüt çevresine yerleşmiş, Osmanlı hanedanı bu boydan çıkmıştır.",
+   "repeat": null,
+   "source": "assets/selcuklu/2.1_Kayi_Damgasi.svg",
+   "bbox": [
+    126.0,
+    96.0,
+    148.0,
+    208.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 4,
+   "body": "<line class=\"s0 fn\" x1=\"130\" y1=\"100\" x2=\"130\" y2=\"300\" stroke-width=\"8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line class=\"s0 fn\" x1=\"270\" y1=\"100\" x2=\"270\" y2=\"300\" stroke-width=\"8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M170 120 L200 200 L170 280\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M230 120 L200 200 L230 280\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+  },
+  {
+   "id": "2.2",
+   "slug": "kinik-damgasi",
+   "slot": "tribe",
+   "name": "Kınık Damgası",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Üçok kolu · Büyük Selçuklu hanedanının boyu.",
+   "history": "Üçok kolunun boylarından olan Kınık, adını \"her yerde aziz, muteber\" anlamından alır. Büyük Selçuklu hanedanı bu boydan çıkmış; Selçuk Bey ve ardından Tuğrul ile Çağrı Beyler önderliğinde Horasan'dan Anadolu'ya uzanan devlet bu boyun adıyla anılmıştır. Damgası yalın, açılı çizgilerden oluşur.",
+   "repeat": null,
+   "source": "assets/selcuklu/2.2_Kinik_Damgasi.svg",
+   "bbox": [
+    146.0,
+    96.0,
+    118.0,
+    208.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 3,
+   "body": "<path class=\"s0 fn\" d=\"M150 100 C230 120 230 280 150 300\" stroke-width=\"8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line class=\"s0 fn\" x1=\"150\" y1=\"100\" x2=\"150\" y2=\"300\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line class=\"s0 fn\" x1=\"150\" y1=\"200\" x2=\"260\" y2=\"200\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+  },
+  {
+   "id": "2.3",
+   "slug": "salur-damgasi",
+   "slot": "tribe",
+   "name": "Salur Damgası",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Bozok kolu · \"kılıç sallayan\" · kaz ayağı formu.",
+   "history": "Bozok kolunun güçlü boylarından Salur, \"kılıç sallayan, hükmeden\" anlamındadır. Dede Korkut anlatılarının merkezî kahramanlarının çoğu Salur boyundandır. Damgası \"kaz ayağı\" olarak bilinen üç çatallı biçimdir; geleneksel yorumda Merih (Mars) yıldızıyla ilişkilendirilir.",
+   "repeat": null,
+   "source": "assets/selcuklu/2.3_Salur_Damgasi.svg",
+   "bbox": [
+    147.0,
+    87.0,
+    106.0,
+    236.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 5,
+   "body": "<line class=\"s0 fn\" x1=\"200\" y1=\"90\" x2=\"200\" y2=\"230\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 230 L150 320\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 230 L200 320\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 230 L250 320\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line class=\"s0 fn\" x1=\"165\" y1=\"140\" x2=\"235\" y2=\"140\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+  },
+  {
+   "id": "2.4",
+   "slug": "afsar-damgasi",
+   "slot": "tribe",
+   "name": "Afşar Damgası",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Bozok kolu · \"işini çabuk gören\" · yay formu.",
+   "history": "Adı \"işini çabuk gören, çevik\" anlamına gelen Afşar boyu, Bozok kolundandır. Anadolu'da Karamanoğulları'nın kuruluşunda etkili olmuş, sonraki yüzyıllarda İran'da Afşar hanedanını kurmuştur. Damgası dikey bir gövdeye yaslanmış yay biçimli kıvrımdan oluşur.",
+   "repeat": null,
+   "source": "assets/selcuklu/2.4_Afsar_Damgasi.svg",
+   "bbox": [
+    147.0,
+    77.0,
+    116.0,
+    246.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 3,
+   "body": "<line class=\"s0 fn\" x1=\"200\" y1=\"80\" x2=\"200\" y2=\"320\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path class=\"s0 fn\" d=\"M200 130 C260 150 260 250 200 270\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line class=\"s0 fn\" x1=\"200\" y1=\"150\" x2=\"150\" y2=\"150\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+  },
+  {
+   "id": "2.5",
+   "slug": "bayindir-damgasi",
+   "slot": "tribe",
+   "name": "Bayındır Damgası",
+   "period": "Anadolu Selçuklu",
+   "blurb": "Üçok kolu · \"bolluk, refah\" · Akkoyunlu'nun boyu.",
+   "history": "Üçok kolundan Bayındır, \"daima nimetle dolu, refah içinde\" anlamındadır. Akkoyunlu Devleti'nin hanedan boyudur ve damgası Akkoyunlu sikkelerinde resmî arma olarak kullanılmıştır. Dikey gövde üzerinde bir daire ve enine çubuktan oluşan biçimi, geleneksel yorumda Büyük Ayı takımyıldızının izdüşümü sayılır.",
+   "repeat": null,
+   "source": "assets/selcuklu/2.5_Bayindir_Damgasi.svg",
+   "bbox": [
+    147.0,
+    92.0,
+    106.0,
+    231.0
+   ],
+   "tierCount": 1,
+   "shapeCount": 3,
+   "body": "<circle class=\"s0 fn\" cx=\"200\" cy=\"130\" r=\"35\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line class=\"s0 fn\" x1=\"200\" y1=\"165\" x2=\"200\" y2=\"320\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line class=\"s0 fn\" x1=\"150\" y1=\"230\" x2=\"250\" y2=\"230\" stroke-width=\"6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>"
+  }
+ ]
+}

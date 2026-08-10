@@ -1,0 +1,13 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#2B2B2B; stroke-width:8; stroke-linecap:round; stroke-linejoin:round; }
+    </style>
+  </defs>
+  <circle cx="200" cy="200" r="190" class="line" stroke-width="3"/>
+
+  <!-- Kınık tamga: bow form - a curved arc with a straight vertical string -->
+  <path d="M150 100 C230 120 230 280 150 300" class="line"/>
+  <line x1="150" y1="100" x2="150" y2="300" class="line" stroke-width="6"/>
+  <line x1="150" y1="200" x2="260" y2="200" class="line" stroke-width="6"/>
+</svg>

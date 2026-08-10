@@ -1,0 +1,56 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#5A3E1B; stroke-width:5; stroke-linecap:round; stroke-linejoin:round; }
+    </style>
+  </defs>
+  <circle cx="200" cy="200" r="190" class="line" stroke-width="3"/>
+
+  <!-- Central knot ring where tails interlace -->
+  <circle cx="200" cy="200" r="30" class="line" stroke-width="4"/>
+
+  <!-- Left dragon head + body, coiling clockwise toward center -->
+  <g>
+    <path d="M80 200
+             C80 150 110 110 160 100
+             C185 95 205 105 210 125
+             C213 140 202 150 188 148
+             C178 146 172 138 178 130" class="line"/>
+    <!-- head -->
+    <path d="M80 200 C65 195 55 205 58 218 C60 228 72 232 82 226
+             C90 222 90 210 80 200Z" class="line"/>
+    <!-- open jaw -->
+    <path d="M58 210 C48 205 40 208 38 216 C40 222 48 224 55 220" class="line" stroke-width="3"/>
+    <!-- ear/horn -->
+    <path d="M75 190 C72 178 78 170 88 172" class="line" stroke-width="3"/>
+    <!-- body scallops -->
+    <path d="M90 230 C95 245 115 250 125 240" class="line" stroke-width="3"/>
+    <path d="M120 145 C135 150 140 165 130 175" class="line" stroke-width="3"/>
+    <!-- tail into center knot -->
+    <path d="M175 180 C182 190 182 200 175 208" class="line" stroke-width="4"/>
+  </g>
+
+  <!-- Right dragon head + body, mirrored, coiling counter-clockwise -->
+  <g>
+    <path d="M320 200
+             C320 250 290 290 240 300
+             C215 305 195 295 190 275
+             C187 260 198 250 212 252
+             C222 254 228 262 222 270" class="line"/>
+    <!-- head -->
+    <path d="M320 200 C335 205 345 195 342 182 C340 172 328 168 318 174
+              C310 178 310 190 320 200Z" class="line"/>
+    <!-- open jaw -->
+    <path d="M342 190 C352 195 360 192 362 184 C360 178 352 176 345 180" class="line" stroke-width="3"/>
+    <!-- ear/horn -->
+    <path d="M325 210 C328 222 322 230 312 228" class="line" stroke-width="3"/>
+    <!-- body scallops -->
+    <path d="M310 170 C305 155 285 150 275 160" class="line" stroke-width="3"/>
+    <path d="M280 255 C265 250 260 235 270 225" class="line" stroke-width="3"/>
+    <!-- tail into center knot -->
+    <path d="M225 220 C218 210 218 200 225 192" class="line" stroke-width="4"/>
+  </g>
+
+  <!-- small central boss (kapı tokmağı halkası) -->
+  <circle cx="200" cy="200" r="10" fill="#5A3E1B"/>
+</svg>

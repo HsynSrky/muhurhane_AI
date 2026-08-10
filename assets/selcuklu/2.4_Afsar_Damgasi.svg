@@ -1,0 +1,13 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#2B2B2B; stroke-width:6; stroke-linecap:round; stroke-linejoin:round; }
+    </style>
+  </defs>
+  <circle cx="200" cy="200" r="190" class="line" stroke-width="3"/>
+
+  <!-- Afşar tamga: bow-like curved form with vertical stem -->
+  <line x1="200" y1="80" x2="200" y2="320" class="line"/>
+  <path d="M200 130 C260 150 260 250 200 270" class="line"/>
+  <line x1="200" y1="150" x2="150" y2="150" class="line"/>
+</svg>

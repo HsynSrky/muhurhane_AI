@@ -1,0 +1,134 @@
+| Antik Tunç | (232,224,210) | (70,48,22) | (120,88,42) | (160,130,70) |
+| Gece Lacivert | (18,36,52) | (210,230,235) | (80,140,150) | (0,158,149) |
+**Kural:** Açık zeminlerde koyu mürekkep; koyu zeminde açık mürekkep. Accent çizgiler (tick/glint) glow tonundan gelir.
+---
+## 11. Sertifika Metin Şablonu
+**Fonksiyon:** `build_certificate_text(latin_name, motif_names, period="Anadolu Selçuklu")`
+**Şablon:**
+```
+{İsim}; bu damga {dönem} dönemine ait olup {motif1}, {motif2} ve {motif3} motiflerini içerir. Size özel üretilmiştir.
+TDT 13. Buluşma · Türkiye Anısına
+```
+**Varyasyonlar**
+- 1 motif → yalnızca o ad  
+- 2 motif → “A ve B”  
+- 3+ → “A, B ve C”  
+- İsim boş → “Değerli Konuk”  
+- Motif yok → genel “motiflerle size özel üretilmiştir”
+---
+## 12. Kabul Kriterleri (Acceptance Criteria)
+### AC-01 Landing
+Given kullanıcı ana URL’i açar  
+When sayfa yüklenir  
+Then TDT logosu, “Mühürhane AI” ve “Atölyeye Gir” görünür.
+### AC-02 Bilinçli seçim
+Given studio açık  
+When kullanıcı bir çerçeveye bakar  
+Then blurb ve period kartta; seçince uzun tarihçe detay kartında görünür.
+### AC-03 Çakışmama
+Given frame + symbol + tribe seçili  
+When simülasyon üretilir  
+Then üç motif görsel olarak ayrı bölgelerde okunabilir (frame halka, symbol merkez, tribe alt).
+### AC-04 Transliterasyon
+Given isim “Eren Bey”  
+When rozet oluşur  
+Then Orhun Unicode karakterleri görünür ve mühür alt yayına işlenir.
+### AC-05 Simülasyon kapısı
+Given simülasyon görünür  
+When kullanıcı henüz onaylamadı  
+Then studio’da HD indirme sunulmaz; certificate’e gidilmeden `final_bytes` yoksa uyarı çıkar.
+### AC-06 Resmî çıktı
+Given kullanıcı “Onayla” der  
+When certificate açılır  
+Then filigransız mühür + anı metni + PNG indirme linki vardır.
+### AC-07 Bağımlılık
+Given temiz ortam  
+When `pip install -r requirements.txt`  
+Then yalnızca Streamlit ve Pillow ile uygulama ayağa kalkar.
+---
+## 13. Metrikler (Önerilen — ölçüm henüz bağlı değil)
+| Metrik | Tanım | Hedef (etkinlik) |
+|--------|-------|------------------|
+| Tamamlanma oranı | Landing → certificate oranı | ≥ %40 |
+| Ortalama motif sayısı | Seçilen slot ortalaması | ≥ 2.0 |
+| İsim doluluk | latin_name dolu oturum % | ≥ %70 |
+| Ortalama süre | Landing → indirme | ≤ 4 dk |
+| Stil dağılımı | TDT Açık Turkuaz tercihi | ≥ %50 |
+---
+## 14. Riskler & Varsayımlar
+| Risk | Etki | Azaltma |
+|------|------|---------|
+| SVG karmaşıklığı (filtre, text, pattern) | Motif bozulur | Basit path/çizgi SVG standardı; parser kapsamı dokümante |
+| Orhun font eksikliği | Alt yay boş/kutulu | `OrkhonFont.ttf` zorunlu; Latin ayrı sistem fontu |
+| Streamlit HTML sarmalayıcı sınırları | CTA yerleşimi kayar | Query-param routing + sütun düzeni |
+| “AI” beklentisi | Generative model sanılır | PRD’de generative olmadığı açık; marka adı |
+| Dönem klasörleri boş | Sekmeler yanıltır | “Yakında” rozeti |
+| Cache stale font | Font güncellemesi yansımaz | Process restart / cache clear |
+**Varsayımlar**
+- Demo / jüri ortamında auth gerekmez.  
+- Kullanıcı modern masaüstü tarayıcı kullanır.  
+- Motif SVG’leri çizgi ağırlıklıdır (dolgu karmaşası az).
+---
+## 15. Test Planı (Manuel)
+| # | Adım | Beklenen |
+|---|------|----------|
+| T1 | `streamlit run app.py` | 8501 açılır |
+| T2 | Landing CTA | Studio’ya geçer |
+| T3 | Üç slot seç + isim | Simülasyon çizilir, filigran var |
+| T4 | Stil değiştir | Renkler güncellenir |
+| T5 | Onayla | Certificate; filigran yok |
+| T6 | Metin kontrol | İsim + motifler + “TDT 13. Buluşma” |
+| T7 | PNG indir | Dosya açılır, dairesel mühür |
+| T8 | Simülasyona dön | Studio seçimleri korunur |
+| T9 | Hiç motif seçmeden | Önizleme boş durum mesajı |
+| T10 | Yeni SVG ekle (kataloglu) | UI’da görünür |
+---
+## 16. Çalıştırma & Ortam
+```bash
+cd gokturk_proje
+pip install -r requirements.txt
+python -m streamlit run app.py
+```
+- **Local:** http://localhost:8501  
+- **Python:** 3.10+ önerilir (geliştirme 3.14 ile doğrulanmıştır)  
+- **OS:** Windows / macOS / Linux  
+---
+## 17. Sorumluluk Matrisi (RACI — özet)
+| Konu | Ürün | Tasarım | Geliştirme | İçerik (motif metinleri) |
+|------|------|---------|------------|---------------------------|
+| PRD / kapsam | A | C | C | C |
+| UI kurumsal dil | C | A | R | I |
+| Render motoru | I | C | A/R | I |
+| Motif kataloğu | C | I | R | A |
+| Sertifika metni | A | C | R | C |
+*(R=Responsible, A=Accountable, C=Consulted, I=Informed)*
+---
+## 18. Sözlük
+| Terim | Anlam |
+|-------|-------|
+| Damga / Mühür | Dairesel kimlik / arma kompozisyonu |
+| Frame | Dış çerçeve motifi |
+| Symbol | Merkez arma / saray sembolü |
+| Tribe / Tamga | Boy aidiyet işareti |
+| Orhun / Orkhon | Göktürk alfabesi (Unicode Old Turkic) |
+| Simülasyon | Filigranlı ön onay önizlemesi |
+| Sertifika | Onay sonrası anı metni + HD çıktı sayfası |
+| TDT | Türk Devletleri Teşkilatı |
+| Rub el-Hizb | Selçuklu sekizgeni / iki kareli yıldız |
+---
+## 19. Versiyon Geçmişi
+| Sürüm | Tarih | Not |
+|-------|-------|-----|
+| 0.1 | 2026-08 | İlk Clean Architecture iskeleti + Selçuklu SVG |
+| 0.2 | 2026-08 | TDT landing, bilgi kartları, kurumsal UI |
+| 0.3 | 2026-08 | Açık turkuaz zemin, bölgeli katmanlar, simülasyon→sertifika |
+| 1.0 | 2026-08-09 | Bu PRD ile dokümante edilmiş MVP+ |
+---
+## 20. Sonuç Bildirimi (Purpose → Outcome)
+| | |
+|--|--|
+| **Amaç** | Türk kültürel sembollerini anlaşılır seçimle dijital damgaya dönüştürmek; TDT etkinlik anısını kişiselleştirmek. |
+| **Bağlam** | TDT kurumsal kimliği · Anadolu Selçuklu odağı · jüri/etkinlik prototipi · tarayıcı tabanlı hafif yığın. |
+| **Sonuç** | Kullanıcı bilinçli seçimle 3 katmanlı mühür simüle eder; onaylayınca “size özel” sertifika metni ve HD PNG alır — TDT 13. Buluşma Türkiye anısına bağlı. |
+---
+*Bu doküman, `gokturk_proje` kod tabanının mevcut davranışını kaynak kabul eder. Kod değiştikçe PRD sürümü güncellenmelidir.*

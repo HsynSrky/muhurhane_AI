@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#1B5E5A; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+    </style>
+  </defs>
+
+  <!-- 8-pointed star tile outline (Kubadabad style) -->
+  <path d="M200 20 L232 90 L308 78 L268 145 L332 178
+           L268 211 L308 278 L232 266 L200 336
+           L168 266 L92 278 L132 211 L68 178
+           L132 145 L92 78 L168 90 Z" class="line" stroke-width="3"/>
+
+  <!-- Sphinx: seated lion body, human head, wings -->
+  <!-- body -->
+  <path d="M140 250 C135 220 150 200 175 198 L225 198
+           C250 200 265 220 260 250
+           C260 265 250 272 235 270
+           L165 270 C150 272 140 262 140 250Z" class="line"/>
+
+  <!-- front legs seated -->
+  <path d="M170 268 L165 300" class="line"/>
+  <path d="M190 270 L188 302" class="line"/>
+  <path d="M210 270 L212 302" class="line"/>
+  <path d="M230 268 L235 300" class="line"/>
+
+  <!-- wings folded, rising from shoulders -->
+  <path d="M150 210 C130 195 125 170 140 150 C148 165 155 170 150 185
+            C160 178 165 165 162 150 C172 165 172 185 158 200" class="line" stroke-width="3"/>
+  <path d="M250 210 C270 195 275 170 260 150 C252 165 245 170 250 185
+            C240 178 235 165 238 150 C228 165 228 185 242 200" class="line" stroke-width="3"/>
+
+  <!-- neck -->
+  <path d="M185 198 L182 165 L218 165 L215 198" class="line"/>
+
+  <!-- human head, frontal, crowned -->
+  <circle cx="200" cy="140" r="30" class="line"/>
+  <circle cx="190" cy="135" r="3.5" fill="#1B5E5A"/>
+  <circle cx="210" cy="135" r="3.5" fill="#1B5E5A"/>
+  <path d="M188 152 Q200 160 212 152" class="line" stroke-width="2.5"/>
+
+  <!-- crown -->
+  <path d="M172 118 L178 95 L188 112 L200 88 L212 112 L222 95 L228 118 Z" class="line" stroke-width="3"/>
+
+  <!-- tail curling up over back -->
+  <path d="M260 255 C285 250 295 225 280 205 C272 195 262 200 265 212" class="line" stroke-width="3"/>
+</svg>

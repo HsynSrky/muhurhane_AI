@@ -1,0 +1,26 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#6B4A1B; stroke-width:7; stroke-linecap:round; stroke-linejoin:round; }
+    </style>
+  </defs>
+  <circle cx="200" cy="200" r="190" class="line" stroke-width="3"/>
+
+  <!-- Central stem -->
+  <line x1="200" y1="200" x2="200" y2="300" class="line" stroke-width="6"/>
+
+  <!-- Left ram horn, double spiral -->
+  <path d="M200 200 C160 190 130 160 130 120
+            C130 95 150 80 170 90
+            C185 98 185 118 168 125
+            C155 130 145 120 150 108" class="line"/>
+
+  <!-- Right ram horn, mirrored double spiral -->
+  <path d="M200 200 C240 190 270 160 270 120
+            C270 95 250 80 230 90
+            C215 98 215 118 232 125
+            C245 130 255 120 250 108" class="line"/>
+
+  <!-- small central boss -->
+  <circle cx="200" cy="200" r="10" fill="#6B4A1B"/>
+</svg>

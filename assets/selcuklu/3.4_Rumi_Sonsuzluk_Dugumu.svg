@@ -1,0 +1,50 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#3A3A6B; stroke-width:5; stroke-linecap:round; stroke-linejoin:round; }
+    </style>
+  </defs>
+  <circle cx="200" cy="200" r="190" class="line" stroke-width="3"/>
+
+  <!-- Endless knot: continuous interlaced loop, 4-fold symmetry, over-under weave -->
+  <g>
+    <path d="M200 60
+             C260 60 300 100 300 150
+             C300 190 270 210 240 200
+             C260 195 270 175 260 155
+             C250 135 220 135 210 155
+             C200 175 210 195 230 200
+             C200 210 170 195 170 165
+             C170 145 190 135 210 140" class="line"/>
+
+    <path d="M200 340
+             C140 340 100 300 100 250
+             C100 210 130 190 160 200
+             C140 205 130 225 140 245
+             C150 265 180 265 190 245
+             C200 225 190 205 170 200
+             C200 190 230 205 230 235
+             C230 255 210 265 190 260" class="line"/>
+
+    <path d="M60 200
+             C60 140 100 100 150 100
+             C190 100 210 130 200 160
+             C195 140 175 130 155 140
+             C135 150 135 180 155 190
+             C175 200 195 190 200 170
+             C210 200 195 230 165 230
+             C145 230 135 210 140 190" class="line"/>
+
+    <path d="M340 200
+             C340 260 300 300 250 300
+             C210 300 190 270 200 240
+             C205 260 225 270 245 260
+             C265 250 265 220 245 210
+             C225 200 205 210 200 230
+             C190 200 205 170 235 170
+             C255 170 265 190 260 210" class="line"/>
+  </g>
+
+  <!-- center small square knot core -->
+  <rect x="185" y="185" width="30" height="30" rx="4" class="line" stroke-width="3"/>
+</svg>

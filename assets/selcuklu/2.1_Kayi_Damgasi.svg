@@ -1,0 +1,15 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#2B2B2B; stroke-width:8; stroke-linecap:round; stroke-linejoin:round; }
+    </style>
+  </defs>
+  <circle cx="200" cy="200" r="190" class="line" stroke-width="3"/>
+
+  <!-- Kayı tamga: two vertical strokes flanking a central "IYI" bow-tie / zigzag form -->
+  <line x1="130" y1="100" x2="130" y2="300" class="line"/>
+  <line x1="270" y1="100" x2="270" y2="300" class="line"/>
+
+  <path d="M170 120 L200 200 L170 280" class="line" stroke-width="6"/>
+  <path d="M230 120 L200 200 L230 280" class="line" stroke-width="6"/>
+</svg>

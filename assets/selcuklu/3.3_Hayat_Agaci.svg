@@ -1,0 +1,55 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#4A6B3A; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+    </style>
+  </defs>
+  <rect x="30" y="20" width="340" height="360" rx="10" class="line" stroke-width="3"/>
+
+  <!-- Top: double-headed eagle emerging from tree crown -->
+  <g stroke="#5A3E1B">
+    <path d="M200 80 L200 110" class="line"/>
+    <path d="M200 90 C160 85 140 65 135 45" class="line" stroke-width="3"/>
+    <path d="M200 90 C240 85 260 65 265 45" class="line" stroke-width="3"/>
+    <circle cx="132" cy="42" r="8" class="line" stroke-width="2.5"/>
+    <circle cx="268" cy="42" r="8" class="line" stroke-width="2.5"/>
+    <path d="M170 100 C130 95 100 105 85 130" class="line" stroke-width="3"/>
+    <path d="M230 100 C270 95 300 105 315 130" class="line" stroke-width="3"/>
+  </g>
+
+  <!-- Trunk -->
+  <line x1="200" y1="110" x2="200" y2="260" class="line" stroke-width="6"/>
+
+  <!-- Branches with leaves, symmetric -->
+  <g>
+    <path d="M200 140 C170 130 150 110 145 90" class="line"/>
+    <path d="M200 140 C230 130 250 110 255 90" class="line"/>
+    <path d="M200 170 C165 165 140 150 130 130" class="line"/>
+    <path d="M200 170 C235 165 260 150 270 130" class="line"/>
+    <path d="M200 200 C168 198 145 185 135 165" class="line"/>
+    <path d="M200 200 C232 198 255 185 265 165" class="line"/>
+
+    <!-- leaf clusters -->
+    <ellipse cx="140" cy="88" rx="14" ry="8" transform="rotate(-30 140 88)" class="line" stroke-width="2.5"/>
+    <ellipse cx="260" cy="88" rx="14" ry="8" transform="rotate(30 260 88)" class="line" stroke-width="2.5"/>
+    <ellipse cx="125" cy="128" rx="14" ry="8" transform="rotate(-30 125 128)" class="line" stroke-width="2.5"/>
+    <ellipse cx="275" cy="128" rx="14" ry="8" transform="rotate(30 275 128)" class="line" stroke-width="2.5"/>
+    <ellipse cx="130" cy="163" rx="14" ry="8" transform="rotate(-30 130 163)" class="line" stroke-width="2.5"/>
+    <ellipse cx="270" cy="163" rx="14" ry="8" transform="rotate(30 270 163)" class="line" stroke-width="2.5"/>
+  </g>
+
+  <!-- Roots at base -->
+  <path d="M200 260 C180 280 160 285 140 300" class="line"/>
+  <path d="M200 260 C220 280 240 285 260 300" class="line"/>
+  <path d="M200 260 L200 310" class="line"/>
+
+  <!-- Bottom register: guardian animal pair flanking the roots -->
+  <g stroke="#7A2E2E">
+    <ellipse cx="140" cy="335" rx="30" ry="18" class="line" stroke-width="3"/>
+    <circle cx="115" cy="325" r="10" class="line" stroke-width="3"/>
+    <path d="M115 320 L100 315" class="line" stroke-width="2.5"/>
+    <ellipse cx="260" cy="335" rx="30" ry="18" class="line" stroke-width="3"/>
+    <circle cx="285" cy="325" r="10" class="line" stroke-width="3"/>
+    <path d="M285 320 L300 315" class="line" stroke-width="2.5"/>
+  </g>
+</svg>

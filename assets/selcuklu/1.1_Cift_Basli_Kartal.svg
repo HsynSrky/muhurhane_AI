@@ -1,0 +1,71 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#2B2B2B; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+      .fill { fill:#2B2B2B; }
+    </style>
+  </defs>
+  <circle cx="200" cy="200" r="190" class="line" stroke-width="3"/>
+
+  <!-- Body, central, frontal -->
+  <path d="M200 150
+           C215 150 225 165 222 185
+           L222 250
+           C222 270 212 285 200 288
+           C188 285 178 270 178 250
+           L178 185
+           C175 165 185 150 200 150Z" class="line"/>
+
+  <!-- Tail feathers, fanned -->
+  <g>
+    <path d="M185 285 L165 330" class="line" stroke-width="3"/>
+    <path d="M195 288 L188 335" class="line" stroke-width="3"/>
+    <path d="M205 288 L212 335" class="line" stroke-width="3"/>
+    <path d="M215 285 L235 330" class="line" stroke-width="3"/>
+  </g>
+
+  <!-- Legs and talons gripping a small central emblem -->
+  <path d="M190 260 L182 285" class="line" stroke-width="3"/>
+  <path d="M210 260 L218 285" class="line" stroke-width="3"/>
+  <circle cx="200" cy="292" r="8" class="line" stroke-width="2.5"/>
+
+  <!-- Left head, neck curving out -->
+  <g>
+    <path d="M180 165 C150 155 125 135 115 105" class="line" stroke-width="4"/>
+    <circle cx="105" cy="95" r="20" class="line"/>
+    <path d="M85 95 C70 92 60 98 58 108 C62 116 74 118 85 112" class="line" stroke-width="3"/>
+    <circle cx="112" cy="90" r="3" class="fill"/>
+    <path d="M100 78 C95 65 100 55 112 52" class="line" stroke-width="2.5"/>
+  </g>
+
+  <!-- Right head, mirrored -->
+  <g>
+    <path d="M220 165 C250 155 275 135 285 105" class="line" stroke-width="4"/>
+    <circle cx="295" cy="95" r="20" class="line"/>
+    <path d="M315 95 C330 92 340 98 342 108 C338 116 326 118 315 112" class="line" stroke-width="3"/>
+    <circle cx="288" cy="90" r="3" class="fill"/>
+    <path d="M300 78 C305 65 300 55 288 52" class="line" stroke-width="2.5"/>
+  </g>
+
+  <!-- Wings spread wide, layered feathers -->
+  <g>
+    <path d="M178 200 C120 190 75 165 55 120
+             C85 138 115 148 145 145
+             C110 158 85 158 62 148
+             C90 172 125 185 170 180" class="line" stroke-width="3"/>
+    <path d="M178 235 C115 240 65 222 40 180
+             C72 195 105 200 135 190
+             C108 208 82 210 60 200
+             C92 220 130 225 165 215" class="line" stroke-width="3"/>
+  </g>
+  <g>
+    <path d="M222 200 C280 190 325 165 345 120
+             C315 138 285 148 255 145
+             C290 158 315 158 338 148
+             C310 172 275 185 230 180" class="line" stroke-width="3"/>
+    <path d="M222 235 C285 240 335 222 360 180
+             C328 195 295 200 265 190
+             C292 208 318 210 340 200
+             C308 220 270 225 235 215" class="line" stroke-width="3"/>
+  </g>
+</svg>

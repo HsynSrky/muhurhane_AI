@@ -1,0 +1,78 @@
+{
+  "note": "Orhun (Old Turkic) harf eşleme tabloları. Kurallar için docs/PRD-tamamlayici.md 7. bölüm. Kod noktaları onaltılık dizge olarak tutulur; hem Python (chr) hem TypeScript (String.fromCodePoint) aynı dosyayı okur, böylece tek kaynak korunur.",
+  "block": {
+    "name": "Old Turkic",
+    "range": "U+10C00-U+10C48",
+    "variant": "Orkhon"
+  },
+  "direction": "rtl",
+  "wordSeparator": "2009",
+  "vowelClasses": {
+    "back": ["a", "ı", "o", "u"],
+    "front": ["e", "i", "ö", "ü"],
+    "rounded": ["o", "u", "ö", "ü"]
+  },
+  "vowels": {
+    "a": "10C00",
+    "e": "10C00",
+    "ı": "10C03",
+    "i": "10C03",
+    "o": "10C06",
+    "u": "10C06",
+    "ö": "10C07",
+    "ü": "10C07"
+  },
+  "dual": {
+    "b": { "back": "10C09", "front": "10C0B" },
+    "g": { "back": "10C0D", "front": "10C0F" },
+    "d": { "back": "10C11", "front": "10C13" },
+    "y": { "back": "10C16", "front": "10C18" },
+    "l": { "back": "10C1E", "front": "10C20" },
+    "n": { "back": "10C23", "front": "10C24" },
+    "r": { "back": "10C3A", "front": "10C3C" },
+    "s": { "back": "10C3D", "front": "10C3E" },
+    "ş": { "back": "10C3F", "front": "10C41" },
+    "t": { "back": "10C43", "front": "10C45" }
+  },
+  "single": {
+    "m": "10C22",
+    "p": "10C2F",
+    "ç": "10C32",
+    "z": "10C14",
+    "ñ": "10C2D"
+  },
+  "quad": {
+    "k": {
+      "backPlain": "10C34",
+      "backDotless": "10C36",
+      "backRounded": "10C38",
+      "frontPlain": "10C1A",
+      "frontRounded": "10C1C"
+    }
+  },
+  "digraphs": {
+    "ng": "ñ"
+  },
+  "aliases": {
+    "ğ": "g",
+    "v": "b",
+    "h": "k",
+    "c": "ç",
+    "f": "p",
+    "j": "ş",
+    "q": "k",
+    "w": "v",
+    "x": "k"
+  },
+  "approximations": {
+    "ğ": "ğ sesi Orhun alfabesinde ayrı harf değildir; g biçimiyle yazıldı.",
+    "v": "v sesi alfabede yoktur; en yakın karşılık olan b biçimiyle yazıldı.",
+    "h": "h sesi alfabede yoktur; k biçimiyle yazıldı.",
+    "c": "c sesi alfabede yoktur; ç harfiyle yazıldı.",
+    "f": "f sesi alfabede yoktur; p harfiyle yazıldı.",
+    "j": "j sesi alfabede yoktur; ş harfiyle yazıldı.",
+    "q": "q Latin harfi k biçimine eşlendi.",
+    "w": "w Latin harfi v üzerinden b biçimine eşlendi.",
+    "x": "x Latin harfi k biçimine eşlendi."
+  }
+}

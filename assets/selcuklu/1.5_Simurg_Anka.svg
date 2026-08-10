@@ -1,0 +1,55 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#7A2E2E; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+    </style>
+  </defs>
+  <circle cx="200" cy="200" r="190" class="line" stroke-width="3"/>
+
+  <!-- Body, frontal stylized bird -->
+  <ellipse cx="200" cy="220" rx="35" ry="50" class="line"/>
+
+  <!-- Head + curved beak profile facing right -->
+  <circle cx="200" cy="150" r="22" class="line"/>
+  <path d="M222 150 C240 148 250 155 248 165 C240 162 228 160 222 155Z" class="line" stroke-width="3"/>
+  <circle cx="208" cy="145" r="3" fill="#7A2E2E"/>
+
+  <!-- crest feathers -->
+  <path d="M195 130 C190 110 195 95 205 90" class="line" stroke-width="3"/>
+  <path d="M205 128 C205 105 215 92 228 90" class="line" stroke-width="3"/>
+  <path d="M185 132 C178 115 182 100 195 95" class="line" stroke-width="3"/>
+
+  <!-- wings spread symmetrically, stylized feather layers -->
+  <g>
+    <path d="M170 200 C120 190 85 165 70 125
+             C95 140 120 148 140 145
+             C120 155 105 155 90 148
+             C110 168 135 178 165 178" class="line" stroke-width="3"/>
+    <path d="M165 220 C110 225 70 210 50 175
+             C78 185 105 188 130 180
+             C110 195 90 197 72 190
+             C100 205 130 208 158 200" class="line" stroke-width="3"/>
+  </g>
+  <g>
+    <path d="M230 200 C280 190 315 165 330 125
+             C305 140 280 148 260 145
+             C280 155 295 155 310 148
+             C290 168 265 178 235 178" class="line" stroke-width="3"/>
+    <path d="M235 220 C290 225 330 210 350 175
+             C322 185 295 188 270 180
+             C290 195 310 197 328 190
+             C300 205 270 208 242 200" class="line" stroke-width="3"/>
+  </g>
+
+  <!-- Tail, long flowing peacock-like plumes -->
+  <path d="M190 265 C180 300 165 325 145 340" class="line" stroke-width="3"/>
+  <path d="M200 270 C198 305 192 330 180 350" class="line" stroke-width="3"/>
+  <path d="M210 265 C220 300 235 325 255 340" class="line" stroke-width="3"/>
+  <circle cx="145" cy="340" r="6" class="line" stroke-width="2"/>
+  <circle cx="180" cy="350" r="6" class="line" stroke-width="2"/>
+  <circle cx="255" cy="340" r="6" class="line" stroke-width="2"/>
+
+  <!-- legs -->
+  <path d="M188 265 L182 290" class="line" stroke-width="3"/>
+  <path d="M212 265 L218 290" class="line" stroke-width="3"/>
+</svg>

@@ -1,0 +1,22 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#1B4A6B; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+    </style>
+  </defs>
+  <circle cx="200" cy="200" r="190" class="line" stroke-width="3"/>
+  <circle cx="200" cy="200" r="165" class="line" stroke-width="2"/>
+
+  <!-- 8-pointed star (Rub el Hizb style) made from two overlapping squares -->
+  <path d="M200 55 L269 90 L345 90 L310 166 L345 242
+           L269 242 L200 345 L131 242 L55 242
+           L90 166 L55 90 L131 90 Z" class="line" stroke-width="3.5"/>
+
+  <!-- inner rotated square for depth -->
+  <rect x="130" y="130" width="140" height="140" transform="rotate(45 200 200)" class="line" stroke-width="2.5"/>
+  <rect x="130" y="130" width="140" height="140" class="line" stroke-width="2.5"/>
+
+  <!-- center small rosette -->
+  <circle cx="200" cy="200" r="22" class="line" stroke-width="2.5"/>
+  <circle cx="200" cy="200" r="8" fill="#1B4A6B"/>
+</svg>

@@ -1,0 +1,27 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .line { fill:none; stroke:#6B4A1B; stroke-width:4; stroke-linecap:round; stroke-linejoin:round; }
+    </style>
+  </defs>
+  <circle cx="200" cy="200" r="190" class="line" stroke-width="3"/>
+  <circle cx="200" cy="200" r="160" class="line" stroke-width="2"/>
+
+  <!-- Two overlapping triangles forming the six-pointed star (Mühür-i Süleyman) -->
+  <path d="M200 70 L317 265 L83 265 Z" class="line" stroke-width="3"/>
+  <path d="M200 330 L83 135 L317 135 Z" class="line" stroke-width="3"/>
+
+  <!-- Eight-lobed rosette overlay at center, ahşap tavan göbeği tarzı -->
+  <g>
+    <ellipse cx="200" cy="150" rx="14" ry="30" class="line" stroke-width="2.5"/>
+    <ellipse cx="200" cy="250" rx="14" ry="30" class="line" stroke-width="2.5"/>
+    <ellipse cx="150" cy="200" rx="30" ry="14" class="line" stroke-width="2.5"/>
+    <ellipse cx="250" cy="200" rx="30" ry="14" class="line" stroke-width="2.5"/>
+    <ellipse cx="165" cy="165" rx="14" ry="30" transform="rotate(45 165 165)" class="line" stroke-width="2.5"/>
+    <ellipse cx="235" cy="165" rx="14" ry="30" transform="rotate(-45 235 165)" class="line" stroke-width="2.5"/>
+    <ellipse cx="165" cy="235" rx="14" ry="30" transform="rotate(-45 165 235)" class="line" stroke-width="2.5"/>
+    <ellipse cx="235" cy="235" rx="14" ry="30" transform="rotate(45 235 235)" class="line" stroke-width="2.5"/>
+  </g>
+
+  <circle cx="200" cy="200" r="14" class="line" stroke-width="3"/>
+</svg>
