@@ -58,7 +58,7 @@ npm run build
 
 `frontend/dist` klasörünü Netlify, Vercel, GitHub Pages, Caddy veya nginx’e koyun. SPA yönlendirmesi hazır:
 
-- Vercel: kökteki `vercel.json`
+- Vercel: kökteki `vercel.json` — **Kök Dizin boş (repo kökü)**, ön ayar **Vite / Other**. `backend` ve FastAPI seçilmez; katalog `backend/data` altından derlemeye girer.
 - Netlify: `netlify.toml`
 - nginx: `deploy/nginx.conf`
 
