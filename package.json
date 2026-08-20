@@ -2,7 +2,7 @@
   "name": "muhurhane",
   "private": true,
   "engines": {
-    "node": "20"
+    "node": "24.x"
   },
   "scripts": {
     "build": "npm run build --prefix frontend"

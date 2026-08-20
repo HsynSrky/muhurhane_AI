@@ -18,7 +18,7 @@ PRD sapmaları ve motif tarihçeleri: [`docs/PRD-tamamlayici.md`](docs/PRD-tamam
 
 ## Hızlı başlangıç
 
-Gereksinim: **Node 20+**. Python yalnızca motif SVG’si eklerken gerekir.
+Gereksinim: **Node 20+** (Vercel’de 24.x). Python yalnızca motif SVG’si eklerken gerekir.
 
 ```bash
 cd frontend
