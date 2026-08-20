@@ -1,100 +1,172 @@
 {
   "period": "Anadolu Selçuklu",
+  "bibliographyNote": "Kısa kart metinleri ziyaretçi dilindedir. Uzun tarihçeler TDV İslâm Ansiklopedisi, Kâşgarlı Mahmud, Reşîdüddin ve sanat tarihi literatürüne dayanır; halk etimolojisi ve geç dönem yorumları açıkça ayrılır.",
   "motifs": {
     "1.1": {
       "name": "Çift Başlı Kartal",
       "slot": "symbol",
-      "blurb": "Hükümdarlık arması; iki yöne birden hâkimiyet.",
-      "history": "Çift başlı kartal, Anadolu Selçuklu Devleti'nin en tanınan hükümdarlık amblemidir. İki başın doğuya ve batıya bakması, hükümdarın her iki yöne birden hâkim olduğu inancını taşır. Konya surlarında, Divriği Ulu Camii taş işçiliğinde ve Selçuklu sikkelerinde görülür; sonraki yüzyıllarda birçok Türk beyliğine ve devlet armasına geçmiştir. Açılmış kanatlar koruma, pençedeki küçük madalyon ise devletin mührünü simgeler."
+      "blurb": "Selçuklu taş, çini ve sikkelerinde hükümdarlık kuşu.",
+      "history": "Çift başlı kartal, Anadolu Selçuklu figür dağarcığının en yaygın yırtıcı kuşudur. Konya surları ve İnce Minareli Medrese mermer kabartması, Divriği Ulu Camii doğu kapısı ve Kubadabad çinileri başlıca örneklerdir; bazı sikkelerde de görülür. İki başın zıt yönlere bakması literatürde doğu–batı hâkimiyeti okumasıyla bağlanır. Sikke üzerindeki figür, hükümdarın unvanı kadar kesin bir hâkimiyet alâmeti sayılmaz; motif saray ve yapı bezemesinde iktidar ve koruma kuşudur.",
+      "citations": [
+        "Gönül Öney, Anadolu Selçuklu mimarisinde avcı kuşlar ve çift başlı kartal",
+        "TOJDAÇ, “Anadolu Selçuklularında Çift Başlı Kartal”",
+        "“Çift Başlı Kartal ve Selçuklular”, dergipark"
+      ]
     },
     "1.2": {
       "name": "Şir-i Hurşid",
       "slot": "symbol",
-      "blurb": "Aslan ve güneş; kudretin göksel meşruiyeti.",
-      "history": "\"Aslan ve Güneş\" anlamına gelen Şir-i Hurşid, İran-Türk ortak sembol dağarcığının en güçlü kompozisyonlarından biridir. Yürüyen aslan dünyevi gücü, sırtından yükselen güneş kursu ise bu gücün göksel kaynağını temsil eder. Anadolu Selçuklu sikkelerinde, özellikle II. Gıyaseddin Keyhüsrev döneminde basılmış paralarda görülür ve hükümdarın yeryüzündeki yetkisinin ilahi onaya dayandığını ilan eder."
+      "blurb": "Aslan ve güneş: II. Gıyaseddin Keyhüsrev sikkeleri.",
+      "history": "Şîr-i Hurşîd (Farsça aslan ve güneş), Anadolu Selçuklu sikkelerinde figürlü tip olarak özellikle II. Gıyaseddin Keyhüsrev döneminde Konya ve Sivas darphanelerinde, hicrî 638–641 (1240–1244) arasında basılmıştır. Metropolitan Museum katalogu kompozisyonu astrolojik “sun-lion” (güneşin Aslan burcundaki konumu) olarak tanımlar. Aslanın dünyevi güç, güneşin göksel kaynak olduğu okuması ikonografik yorumdur; sultanın Gürcü eşiyle özdeşleştirilmesi literatürde ikincil ve tartışmalıdır.",
+      "citations": [
+        "MET, Dirham of Ghiyath al-Din Kai Khusrau II (638 H / 1240–41)",
+        "Art-Sanat 22 (2024), Bursa Arkeoloji Müzesi Keyhusrev sikkeleri",
+        "Van Müzesi Anadolu Selçuklu sikke örnekleri"
+      ]
     },
     "1.3": {
       "name": "Çifte Ejderha",
       "slot": "symbol",
-      "blurb": "Eşiklerin ve zamanın bekçisi, düğümlü ejder çifti.",
-      "history": "Karşılıklı duran ve kuyrukları merkezde düğümlenen iki ejderha, Selçuklu ikonografisinde eşiklerin ve geçişlerin koruyucusudur. Kapı tokmaklarında, kervansaray portallerinde ve Cizre Ulu Camii'nin ünlü tokmaklarında karşımıza çıkar. Düğümlenen kuyruklar zamanın döngüselliğini, açık çeneler ise kötülüğü yutan koruyuculuğu anlatır."
+      "blurb": "Eşik koruyucusu; Cizre tokmaklarındaki düğümlü ejder.",
+      "history": "Karşılıklı, gövdeleri düğümlenen ejder çifti Cezire ve Anadolu İslam metal ve taş işçiliğinde kapı, taçkapı ve tokmaklarda koruyucu figürdür. En tanınmış tunç örnek Cizre Ulu Camii kapı tokmaklarıdır: kitabe atabeg Ebu’l-Kasım Mahmud Sencer Şah’ı (hük. 1208–1241) anar; üretim Artuklu/Atabeg çevresi ve el-Cezerî atölye geleneğiyle ilişkilendirilir. Bir tokmak İstanbul Türk ve İslam Eserleri Müzesi’nde, diğeri Kopenhag David Collection’dadır. Motif Selçuklu çağı ikonografisine aittir; Konya sultanlığının resmî arması değildir.",
+      "citations": [
+        "Kenan Bilici, Cizre Ulu Camii tunç kapı tokmakları",
+        "T.C. Kültür ve Turizm Bakanlığı, Cizre Ejderleri",
+        "The David Collection, Cizre door-knocker"
+      ]
     },
     "1.4": {
       "name": "Selçuklu Sfenksi",
       "slot": "symbol",
-      "blurb": "İnsan başlı kanatlı koruyucu; saray çinilerinin bekçisi.",
-      "history": "İnsan başlı, aslan gövdeli, kanatlı sfenks figürü Kubadabad Sarayı'nın sekiz köşeli yıldız çinilerinde en görkemli halini bulur. Selçuklu sarayında sfenks bir yabancı değil, tılsımlı bir koruyucudur: taçlı başı hükümdarın aklını, aslan gövdesi cesaretini, kanatları ise göksel korumayı temsil eder. Özgün çinide figür sekiz köşeli yıldız kaidesi üzerinde durur; mühürde bu kaide kaldırılıp figür merkeze alınmıştır."
+      "blurb": "İnsan başlı, aslan gövdeli, kanatlı Kubadabad çinisi.",
+      "history": "İnsan başlı, aslan gövdeli, kanatlı sfenks, I. Alâeddin Keykubâd’ın Beyşehir Gölü kıyısındaki Kubadabad Sarayı sıraltı çinilerinde sekiz köşeli yıldız kaidesi üzerinde belgelenmiştir. Selçuklu saray ikonografisinde yabancı bir Mısır ithali değil, tılsımlı koruyucu tiptir. Mühürde yıldız kaide kılavuz sayılıp sökülmüş, figür merkeze alınmıştır.",
+      "citations": [
+        "Rüçhan Arık, Kubad Abad",
+        "Gönül Öney, Anadolu Selçuklu çini ve figür sanatı"
+      ]
     },
     "1.5": {
       "name": "Simurg / Anka",
       "slot": "symbol",
-      "blurb": "Küllerinden doğan devlet; ölümsüzlük kuşu.",
-      "history": "Simurg, Türk ve İran mitolojisinin ortak kuşudur; Anadolu'da Anka adıyla anılır. Küllerinden yeniden doğması, devletin ve hanedanın sürekliliğine dair güçlü bir metafordur. Selçuklu taş kabartmalarında ve Kubadabad çinilerinde çoğunlukla cepheden, kanatları açık ve kuyruğu bitkisel kıvrımlarla stilize edilmiş biçimde işlenir."
+      "blurb": "Şehnâme’nin bilge kuşu; Anadolu’da Anka adıyla anılır.",
+      "history": "Sîmurg (Pehlevî Sênmurw) İran destan dağarcığındandır; İslamî Türk edebiyatında sıkça Anka ile bir tutulur. Firdevsî’nin Şehnâme’sinde Zal’i büyüten, Kaf Dağı’ndaki bilge kuştur. Küllerinden doğma motifi Feniks/Anka katmanıdır, Selçuklu çinisinin birincil anlamı değildir. Kubadabad ve Selçuklu taşında cepheden, açık kanatlı mitik kuşlar işlenir; modern literatür bunları bazen çift başlı kartalla da ilişkilendirir.",
+      "citations": [
+        "Firdevsî, Şehnâme (Sîmurg / Zal)",
+        "“Der Beyân-ı Ahvâl-i Sîmurg-ı Ankâ”, Atatürk Ü. Edebiyat Fakültesi Dergisi",
+        "Rüçhan Arık, Kubad Abad kuş çinileri"
+      ]
     },
     "2.1": {
       "name": "Kayı Damgası",
       "slot": "tribe",
-      "blurb": "Bozok kolu · \"sağlam, güçlü\" · Osmanlı'nın çıktığı boy.",
-      "history": "Oğuz Kağan Destanı'na göre Gün Han'ın oğlu Kayı'dan gelen boy, Bozok kolunun en kıdemlisidir. Adı \"sağlam, güçlü, kudret sahibi\" anlamındadır. Damgası iki dikey çizgi arasında karşılıklı iki oktan oluşur ve \"IYI\" biçiminde okunur. Kayı boyu, Anadolu'ya göçen Oğuz boyları arasında Söğüt çevresine yerleşmiş, Osmanlı hanedanı bu boydan çıkmıştır."
+      "blurb": "Bozok · Gün Han · ok ve yay · Osmanlı geleneği.",
+      "history": "Reşîdüddin’in Câmiʿu’t-tevârîh’inde Kayı, Bozok kolundan Gün Han oğullarındandır. Damga, Kâşgarlı Mahmud ve Yazıcızâde Ali geleneğinde iki ok ve bir yaydır. “IYI” okunuşu bu formun modern görsel yorumudur. Osmanlı hanedanının Kayı’dan geldiği, kronik geleneğinin (Âşıkpaşazâde ve devamı) ve Türk tarih yazımının standart kabulüdür. “Sağlam, güçlü” adı Reşîdüddin’in halk etimolojisidir.",
+      "citations": [
+        "Kâşgarlı Mahmud, Dîvânu Lugâti’t-Türk",
+        "Reşîdüddin Fazlullâh, Câmiʿu’t-tevârîh",
+        "Faruk Sümer, Oğuzlar (Türkmenler)"
+      ]
     },
     "2.2": {
       "name": "Kınık Damgası",
       "slot": "tribe",
-      "blurb": "Üçok kolu · Büyük Selçuklu hanedanının boyu.",
-      "history": "Üçok kolunun boylarından olan Kınık, adını \"her yerde aziz, muteber\" anlamından alır. Büyük Selçuklu hanedanı bu boydan çıkmış; Selçuk Bey ve ardından Tuğrul ile Çağrı Beyler önderliğinde Horasan'dan Anadolu'ya uzanan devlet bu boyun adıyla anılmıştır. Damgası yalın, açılı çizgilerden oluşur."
+      "blurb": "Üçok · Büyük Selçuklu hanedanının boyu.",
+      "history": "Kınık, Reşîdüddin listesinde Üçok kolundandır. Kâşgarlı Mahmud Dîvânu Lugâti’t-Türk’te Kınık’ı “çağın sultanlarının boyu” diye öne alır. Büyük Selçuklu hanedanı bu boydandır. “Her yerde aziz, muteber” açıklaması Reşîdüddin’in halk etimolojisidir, modern dilbilimsel köken değildir. Damga çizimleri nüshalara göre değişir; buradaki biçim şematik atölye çizimidir.",
+      "citations": [
+        "Kâşgarlı Mahmud, Dîvânu Lugâti’t-Türk",
+        "TDV İslâm Ansiklopedisi, “Üçoklar”",
+        "Faruk Sümer, Oğuzlar (Türkmenler)"
+      ]
     },
     "2.3": {
       "name": "Salur Damgası",
       "slot": "tribe",
-      "blurb": "Bozok kolu · \"kılıç sallayan\" · kaz ayağı formu.",
-      "history": "Bozok kolunun güçlü boylarından Salur, \"kılıç sallayan, hükmeden\" anlamındadır. Dede Korkut anlatılarının merkezî kahramanlarının çoğu Salur boyundandır. Damgası \"kaz ayağı\" olarak bilinen üç çatallı biçimdir; geleneksel yorumda Merih (Mars) yıldızıyla ilişkilendirilir."
+      "blurb": "Üçok · Dağ Han · Dede Korkut’ta Salur Kazan.",
+      "history": "Salur (Kâşgarlı’da Salgur) Üçok kolundandır; Oğuz Kağan destanı geleneğinde Dağ Han soyuna bağlanır. Reşîdüddin adı “nerede olsa kılıç ve topuzu iş görür” diye açıklar — bu da halk etimolojisidir. Dede Korkut anlatılarında Salur Kazan merkezî kahramandır. XII. yüzyılda Fars’ta Salgurlu Atabegliği bu boydandır. “Kaz ayağı” ve Merih yıldızı eşlemesi geç dönem popüler damga okumasıdır; Kâşgarlı’daki damga işareti ayrı bir şemadır.",
+      "citations": [
+        "TDV İslâm Ansiklopedisi, “Salur”",
+        "TDV İslâm Ansiklopedisi, “Üçoklar”",
+        "Kâşgarlı Mahmud, Dîvânu Lugâti’t-Türk",
+        "Reşîdüddin Fazlullâh, Câmiʿu’t-tevârîh"
+      ]
     },
     "2.4": {
       "name": "Afşar Damgası",
       "slot": "tribe",
-      "blurb": "Bozok kolu · \"işini çabuk gören\" · yay formu.",
-      "history": "Adı \"işini çabuk gören, çevik\" anlamına gelen Afşar boyu, Bozok kolundandır. Anadolu'da Karamanoğulları'nın kuruluşunda etkili olmuş, sonraki yüzyıllarda İran'da Afşar hanedanını kurmuştur. Damgası dikey bir gövdeye yaslanmış yay biçimli kıvrımdan oluşur."
+      "blurb": "Bozok · Yazıcızâde’ye göre Karamanoğulları bu boydandır.",
+      "history": "Afşar (Avşar) Bozok kolundandır. Adın “işini çabuk gören” anlamı yine Reşîdüddin etimolojisidir. Karamanoğulları’nın Afşar’dan geldiği görüşü Yazıcızâde Ali’ye dayanır; Faruk Sümer TDV “Karamanoğulları” maddesinde bu görüşü benimser. Literatürde Salur kökeni de ileri sürülmüştür; kesin mutabakat yoktur. XVIII. yüzyılda İran’da Afşar hanedanı aynı boy adını taşır.",
+      "citations": [
+        "TDV İslâm Ansiklopedisi, “Karamanoğulları” (Faruk Sümer)",
+        "Yazıcızâde Ali, Tevârîh-i Âl-i Selçuk",
+        "Faruk Sümer, Oğuzlar (Türkmenler)"
+      ]
     },
     "2.5": {
       "name": "Bayındır Damgası",
       "slot": "tribe",
-      "blurb": "Üçok kolu · \"bolluk, refah\" · Akkoyunlu'nun boyu.",
-      "history": "Üçok kolundan Bayındır, \"daima nimetle dolu, refah içinde\" anlamındadır. Akkoyunlu Devleti'nin hanedan boyudur ve damgası Akkoyunlu sikkelerinde resmî arma olarak kullanılmıştır. Dikey gövde üzerinde bir daire ve enine çubuktan oluşan biçimi, geleneksel yorumda Büyük Ayı takımyıldızının izdüşümü sayılır."
+      "blurb": "Üçok · Akkoyunlu hanedan boyu.",
+      "history": "Bayındır Üçok kolundandır. Akkoyunlu Devleti’nin hanedan boyu olduğu ve damganın Akkoyunlu sikkelerinde arma olarak kullanıldığı Türkmen beylikleri tarihinin standart kabulüdür. “Bolluk, refah” adı Reşîdüddin etimolojisidir. Büyük Ayı takımyıldızı okuması geleneksel yorumdur, epigrafik kanıt değildir.",
+      "citations": [
+        "Faruk Sümer, Oğuzlar (Türkmenler)",
+        "TDV İslâm Ansiklopedisi, Akkoyunlular maddesi"
+      ]
     },
     "3.1": {
       "name": "Selçuklu Yıldızı",
       "slot": "frame",
-      "blurb": "Rub el-Hizb · iki kareden doğan sekiz köşeli yıldız.",
-      "history": "Biri 45 derece döndürülmüş iki karenin üst üste binmesiyle oluşan sekiz köşeli yıldız, Selçuklu geometrik süslemesinin temel taşıdır. Sekiz köşe, geleneksel yorumda sabır, merhamet, doğruluk, sır tutma, sadakat, cömertlik, şükür ve ilim olmak üzere sekiz erdeme karşılık gelir. Kubadabad çinilerinden Karatay Medresesi kubbesine kadar geniş bir alanda karşımıza çıkar.",
-      "repeat": 20
+      "blurb": "İki kareden oktagram; Kubadabad ve Karatay çinisi.",
+      "history": "Biri 45 derece döndürülmüş iki karenin binmesiyle oluşan sekiz köşeli yıldız, Anadolu Selçuklu geometrik bezemesinin temel formlarındandır. Kubadabad ve Konya Karatay Medresesi çinilerinde yoğundur. İslam sanatında aynı forma Rub el-Hizb denir. Sekiz köşeye yüklenen erdem listesi (sabır, merhamet, doğruluk…) geç dönem ahlaki okumadır; Selçuklu kitabelerinde bu liste sabitlemez (Aslan–Duran 2021: kaynağı kesin değildir).",
+      "repeat": 20,
+      "citations": [
+        "Yaşar Çoruhlu, Türk sanatında geometrik bezeme / sekiz cennet okuması",
+        "Aslan ve Duran, Turkish Studies (2021), Selçuklu yıldızı",
+        "Kubadabad ve Karatay çini katalogları"
+      ]
     },
     "3.2": {
       "name": "Koçboynuzu",
       "slot": "frame",
-      "blurb": "Bereket, güç ve kahramanlık · çift sarmal.",
-      "history": "Anadolu halı ve kilimlerinin en yaygın motifi olan koçboynuzu, bereketi, gücü, kahramanlığı ve erkekliği simgeler. Çift sarmal biçimi, koçun boynuzlarının stilize edilmiş halidir. Orta Asya'dan Anadolu'ya kesintisiz taşınmış en eski Türk motiflerinden biridir; mezar taşlarından dokumalara kadar her yüzeyde görülür.",
-      "repeat": 20
+      "blurb": "Bereket ve güç; Anadolu kilimlerinin temel motifi.",
+      "history": "Koçboynuzu, Anadolu halı ve kilimlerinde en sık belgelenen boynuzlu sarmal motiftir. Orta Asya Türk hayvan üslubuyla Anadolu dokuma geleneği arasında süreklilik kabul edilir. Selçuklu mezar taşlarında da boynuzlu/sarmal tipler görülür; asıl yaygın evreni dokumadır. Bereket, güç ve kahramanlık anlamı etnografik kilim literatürünün standart yorumudur.",
+      "repeat": 20,
+      "citations": [
+        "Bahaeddin Ögel, Türk Mitolojisi",
+        "Anadolu kilim motif katalogları (koçboynuzu tipi)"
+      ]
     },
     "3.3": {
       "name": "Hayat Ağacı",
       "slot": "frame",
-      "blurb": "Gök ile yeri bağlayan kozmik eksen.",
-      "history": "Hayat ağacı, gökyüzü ile yeraltını birbirine bağlayan kozmik eksendir. Kökleri yeraltına, dalları göğe uzanır; tepesinde çoğu zaman bir kuş ya da çift başlı kartal, dibinde ise koruyucu hayvan çifti bulunur. Türk mitolojisinde \"ulu kayın\" olarak anılan bu motif, Selçuklu taş işçiliğinde ve mezar taşlarında sürekliliğin ve soyun devamının işareti olarak işlenmiştir.",
-      "repeat": 12
+      "blurb": "Gök ile yeri bağlayan ağaç; kuşlu mezar taşı tipi.",
+      "history": "Hayat ağacı, kökü yerde tepesi gökte kozmik eksen olarak Türk ve İslam sanatının ortak tipidir. Anadolu Selçuklu mezar taşlarında tepesinde kuş, dibinde koruyucu hayvan çifti olan ağaç kompozisyonları belgelenmiştir. “Ulu kayın” adı Altay/Göktürk hayat ağacı geleneğine aittir; Anadolu’daki oyma ağaç onun devamı sayılır, aynı etiket birebir kitabe değildir.",
+      "repeat": 12,
+      "citations": [
+        "Yaşar Çoruhlu, Türk mitolojisi ve ikonografi",
+        "Gönül Öney, Anadolu Selçuklu mezar taşları",
+        "Bahaeddin Ögel, Türk Mitolojisi"
+      ]
     },
     "3.4": {
       "name": "Rumi Sonsuzluk Düğümü",
       "slot": "frame",
-      "blurb": "Başı ve sonu olmayan örgü · süreklilik.",
-      "history": "Başlangıcı ve sonu ayırt edilemeyen, kendi üzerine örülen sonsuz düğüm, Selçuklu geometrik bezemesinin felsefi karşılığıdır: sonsuzluk, süreklilik ve birlik. Dört katlı simetriyle örülen şerit, alttan-üstten geçişlerle dokunmuş izlenimi verir. Selçuklu kapı kanatlarında ve minber işçiliğinde yaygındır.",
-      "repeat": 16
+      "blurb": "Rumi kıvrım ve uçsuz düğüm; ahşap ve taş bezeme.",
+      "history": "Rumi, palmet ve kıvrık dalın Anadolu Selçuklu taş, çini ve ahşabında aldığı üslup adıdır. Kendi üzerine örülen, başı sonu belirsiz düğüm (zencerek / sonsuz düğüm) kapı kanadı, minber ve rahlelerde geometrik sürekliliği kurar. “Birlik ve sonsuzluk” okuması süsleme programının ikonolojik yorumudur; formun kendisi Selçuklu bezeme gramerinin parçasıdır.",
+      "repeat": 16,
+      "citations": [
+        "Gönül Öney, Anadolu Selçuklu mimari süslemesi",
+        "Selçuklu ahşap minber ve kapı kanadı katalogları"
+      ]
     },
     "3.5": {
       "name": "Mühür-i Süleyman",
       "slot": "frame",
-      "blurb": "Altı köşeli yıldız · hikmet ve tılsım.",
-      "history": "İki eşkenar üçgenin iç içe geçmesiyle oluşan altı köşeli yıldız, Süleyman Peygamber'in mührü olarak bilinir ve İslam sanatında hikmet, tılsım ve koruma anlamı taşır. Selçuklu ahşap tavan göbeklerinde, çini panolarında ve mezar taşlarında merkeze konan sekiz loblu rozetle birlikte işlenir.",
-      "repeat": 20
+      "blurb": "Hâtem-i Süleyman; İslam sanatında hikmet mührü.",
+      "history": "Hâtem-i Süleyman, İslam sanatında Süleyman Peygamber’in mührüne bağlanan yıldızdır; çoğu bağlamda iki eşkenar üçgenin iç içe geçtiği altı köşeli formdur. Anadolu Selçuklu bezemesinde asıl yaygın yıldız ise sekiz köşeli oktagramdır (3.1). Altı köşeli mühür ve sekiz loblu rozet ahşap tavan göbekleri, çini ve mezar taşlarında birlikte görülebilir. Bu kuşak motifi hexagram/rozet tipidir; Selçuklu yıldızıyla karıştırılmamalıdır.",
+      "repeat": 20,
+      "citations": [
+        "İslam sanatı literatürü, hâtem-i Süleyman / Mühr-i Süleyman",
+        "Anadolu Selçuklu ahşap tavan göbeği ve çini katalogları"
+      ]
     }
   }
 }

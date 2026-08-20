@@ -1,17 +1,16 @@
 /**
  * Latin → Orhun çeviriyazısı (docs/PRD-tamamlayici.md §7).
  *
- * Harf tabloları arka uçtaki `backend/data/orkhon_map.json` dosyasından gelir ve
- * `/api/orkhon/map` ile servis edilir; kural tabloları tek kaynakta durur.
- * Algoritma burada çalışır, çünkü önizlemenin kullanıcı yazarken tek karede
- * güncellenmesi gerekiyor — her tuş vuruşunda sunucuya gidilemez.
+ * Harf tabloları `backend/data/orkhon_map.json` dosyasından derleme zamanında
+ * gömülür. Algoritma burada çalışır: önizleme her tuşta tek karede güncellenir.
  *
  * Python karşılığı: `backend/app/domain/transliteration.py`.
  */
 
 import type { OrkhonMap } from '@/api/types'
 
-export type Harmony = 'back' | 'front'
+export type VowelClass = 'back' | 'front'
+export type Harmony = VowelClass | 'mixed'
 
 export interface OrkhonLetter {
   latin: string
@@ -36,6 +35,8 @@ export interface OrkhonResult {
 
 const MAX_ALIAS_DEPTH = 4
 const LETTER = /\p{L}/u
+const MIXED_NOTE =
+  'Karışık ünlülü ad: her ünsüz, kendi hecesinin ünlüsüne göre kalın veya ince yazıldı.'
 
 export const EMPTY_RESULT: OrkhonResult = { source: '', text: '', words: [], notes: [] }
 
@@ -54,7 +55,7 @@ export class OrkhonAlphabet {
   private readonly front: Set<string>
   private readonly rounded: Set<string>
   private readonly vowels: Map<string, string>
-  private readonly dual: Map<string, Record<Harmony, string>>
+  private readonly dual: Map<string, Record<VowelClass, string>>
   private readonly single: Map<string, string>
   private readonly quad: Map<string, Record<string, string>>
   private readonly digraphs: Record<string, string>
@@ -98,12 +99,13 @@ export class OrkhonAlphabet {
       if (letters.length === 0) continue
 
       const harmony = this.harmonyOf(letters)
-      const rendered = this.renderWord(letters, harmony)
+      const rendered = this.renderWord(letters)
       if (rendered.length === 0) continue
 
       for (const letter of rendered) {
         if (letter.note) notes.add(letter.note)
       }
+      if (harmony === 'mixed') notes.add(MIXED_NOTE)
 
       words.push({
         latin: rawWord,
@@ -129,25 +131,52 @@ export class OrkhonAlphabet {
     return this.vowels.has(letter)
   }
 
-  /** Kelimenin ünlü sınıfı; belirleyici son ünlüdür (kural §7.5/2). */
+  /** Kelime özeti; harf seçimini etkilemez. */
   private harmonyOf(letters: string[]): Harmony {
-    for (let index = letters.length - 1; index >= 0; index -= 1) {
-      const letter = letters[index]!
-      if (this.front.has(letter)) return 'front'
-      if (this.back.has(letter)) return 'back'
+    let seen: VowelClass | null = null
+    for (const letter of letters) {
+      const cls = this.classOfVowel(letter)
+      if (cls === null) continue
+      if (seen === null) seen = cls
+      else if (seen !== cls) return 'mixed'
     }
-    return 'back'
+    return seen ?? 'back'
   }
 
-  /** `k` biçimini seçmek için en yakın ünlü: önce sonraki, sonra önceki. */
-  private nearestVowel(letters: string[], index: number): string | null {
-    for (let step = index + 1; step < letters.length; step += 1) {
-      if (this.isVowel(letters[step]!)) return letters[step]!
-    }
-    for (let step = index - 1; step >= 0; step -= 1) {
-      if (this.isVowel(letters[step]!)) return letters[step]!
-    }
+  private classOfVowel(letter: string | null): VowelClass | null {
+    if (letter === null) return null
+    if (this.front.has(letter)) return 'front'
+    if (this.back.has(letter)) return 'back'
     return null
+  }
+
+  /**
+   * Ünsüzün hece ünlüsü (PRD §7.5).
+   * İki ünlü arasında son ünsüz sonraki hecenin başı, kalanı önceki hecenin sonudur.
+   */
+  private syllableVowel(letters: string[], index: number): string | null {
+    const current = letters[index]
+    if (current !== undefined && this.isVowel(current)) return current
+
+    let prev: number | null = null
+    let next: number | null = null
+    for (let step = index - 1; step >= 0; step -= 1) {
+      if (this.isVowel(letters[step]!)) {
+        prev = step
+        break
+      }
+    }
+    for (let step = index + 1; step < letters.length; step += 1) {
+      if (this.isVowel(letters[step]!)) {
+        next = step
+        break
+      }
+    }
+
+    if (prev === null) return next === null ? null : letters[next]!
+    if (next === null) return letters[prev]!
+    if (index === next - 1) return letters[next]!
+    return letters[prev]!
   }
 
   private resolveAlias(letter: string): { base: string; note?: string } {
@@ -161,7 +190,7 @@ export class OrkhonAlphabet {
     return note ? { base: current, note } : { base: current }
   }
 
-  private renderWord(letters: string[], harmony: Harmony): OrkhonLetter[] {
+  private renderWord(letters: string[]): OrkhonLetter[] {
     const rendered: OrkhonLetter[] = []
     let index = 0
 
@@ -177,7 +206,7 @@ export class OrkhonAlphabet {
 
       const mapped = this.digraphs[latin] ?? latin
       const { base, note } = this.resolveAlias(mapped)
-      const character = this.glyphFor(base, letters, index, harmony)
+      const character = this.glyphFor(base, letters, index)
       if (character !== null) {
         rendered.push(note ? { latin, orkhon: character, note } : { latin, orkhon: character })
       }
@@ -187,12 +216,7 @@ export class OrkhonAlphabet {
     return rendered
   }
 
-  private glyphFor(
-    base: string,
-    letters: string[],
-    index: number,
-    harmony: Harmony,
-  ): string | null {
+  private glyphFor(base: string, letters: string[], index: number): string | null {
     const vowel = this.vowels.get(base)
     if (vowel !== undefined) return vowel
 
@@ -200,25 +224,24 @@ export class OrkhonAlphabet {
     if (single !== undefined) return single
 
     const dual = this.dual.get(base)
-    if (dual !== undefined) return dual[harmony]
+    if (dual !== undefined) {
+      const cls = this.classOfVowel(this.syllableVowel(letters, index)) ?? 'back'
+      return dual[cls]
+    }
 
     const quad = this.quad.get(base)
-    if (quad !== undefined) return this.quadGlyph(quad, letters, index, harmony)
+    if (quad !== undefined) return this.quadGlyph(quad, letters, index)
 
     return null
   }
 
-  /** `k` dört biçimlidir: ünlü sınıfı + komşu ünlünün yuvarlaklığı (§7.4). */
-  private quadGlyph(
-    forms: Record<string, string>,
-    letters: string[],
-    index: number,
-    harmony: Harmony,
-  ): string {
-    const neighbour = this.nearestVowel(letters, index)
+  /** `k` dört biçimlidir: hece ünlüsünün sınıfı + yuvarlaklığı (§7.4). */
+  private quadGlyph(forms: Record<string, string>, letters: string[], index: number): string {
+    const neighbour = this.syllableVowel(letters, index)
     const rounded = neighbour !== null && this.rounded.has(neighbour)
+    const cls = this.classOfVowel(neighbour) ?? 'back'
 
-    if (harmony === 'front') {
+    if (cls === 'front') {
       return (rounded ? forms['frontRounded'] : forms['frontPlain']) ?? forms['frontPlain']!
     }
     if (rounded) return forms['backRounded']!

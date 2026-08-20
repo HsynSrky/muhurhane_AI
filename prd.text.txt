@@ -7,7 +7,6 @@
 **Şablon:**
 ```
 {İsim}; bu damga {dönem} dönemine ait olup {motif1}, {motif2} ve {motif3} motiflerini içerir. Size özel üretilmiştir.
-TDT 13. Buluşma · Türkiye Anısına
 ```
 **Varyasyonlar**
 - 1 motif → yalnızca o ad  
@@ -20,7 +19,7 @@ TDT 13. Buluşma · Türkiye Anısına
 ### AC-01 Landing
 Given kullanıcı ana URL’i açar  
 When sayfa yüklenir  
-Then TDT logosu, “Mühürhane AI” ve “Atölyeye Gir” görünür.
+Then “Mühürhane” başlığı ve “Atölyeye Gir” görünür.
 ### AC-02 Bilinçli seçim
 Given studio açık  
 When kullanıcı bir çerçeveye bakar  
@@ -53,7 +52,7 @@ Then yalnızca Streamlit ve Pillow ile uygulama ayağa kalkar.
 | Ortalama motif sayısı | Seçilen slot ortalaması | ≥ 2.0 |
 | İsim doluluk | latin_name dolu oturum % | ≥ %70 |
 | Ortalama süre | Landing → indirme | ≤ 4 dk |
-| Stil dağılımı | TDT Açık Turkuaz tercihi | ≥ %50 |
+| Stil dağılımı | Açık Turkuaz tercihi | ≥ %50 |
 ---
 ## 14. Riskler & Varsayımlar
 | Risk | Etki | Azaltma |
@@ -77,7 +76,7 @@ Then yalnızca Streamlit ve Pillow ile uygulama ayağa kalkar.
 | T3 | Üç slot seç + isim | Simülasyon çizilir, filigran var |
 | T4 | Stil değiştir | Renkler güncellenir |
 | T5 | Onayla | Certificate; filigran yok |
-| T6 | Metin kontrol | İsim + motifler + “TDT 13. Buluşma” |
+| T6 | Metin kontrol | İsim + motifler |
 | T7 | PNG indir | Dosya açılır, dairesel mühür |
 | T8 | Simülasyona dön | Studio seçimleri korunur |
 | T9 | Hiç motif seçmeden | Önizleme boş durum mesajı |
@@ -113,22 +112,21 @@ python -m streamlit run app.py
 | Orhun / Orkhon | Göktürk alfabesi (Unicode Old Turkic) |
 | Simülasyon | Filigranlı ön onay önizlemesi |
 | Sertifika | Onay sonrası anı metni + HD çıktı sayfası |
-| TDT | Türk Devletleri Teşkilatı |
 | Rub el-Hizb | Selçuklu sekizgeni / iki kareli yıldız |
 ---
 ## 19. Versiyon Geçmişi
 | Sürüm | Tarih | Not |
 |-------|-------|-----|
 | 0.1 | 2026-08 | İlk Clean Architecture iskeleti + Selçuklu SVG |
-| 0.2 | 2026-08 | TDT landing, bilgi kartları, kurumsal UI |
+| 0.2 | 2026-08 | Landing, bilgi kartları, ürün arayüzü |
 | 0.3 | 2026-08 | Açık turkuaz zemin, bölgeli katmanlar, simülasyon→sertifika |
 | 1.0 | 2026-08-09 | Bu PRD ile dokümante edilmiş MVP+ |
 ---
 ## 20. Sonuç Bildirimi (Purpose → Outcome)
 | | |
 |--|--|
-| **Amaç** | Türk kültürel sembollerini anlaşılır seçimle dijital damgaya dönüştürmek; TDT etkinlik anısını kişiselleştirmek. |
-| **Bağlam** | TDT kurumsal kimliği · Anadolu Selçuklu odağı · jüri/etkinlik prototipi · tarayıcı tabanlı hafif yığın. |
-| **Sonuç** | Kullanıcı bilinçli seçimle 3 katmanlı mühür simüle eder; onaylayınca “size özel” sertifika metni ve HD PNG alır — TDT 13. Buluşma Türkiye anısına bağlı. |
+| **Amaç** | Türk kültürel sembollerini anlaşılır seçimle dijital damgaya dönüştürmek. |
+| **Bağlam** | Anadolu Selçuklu odağı · tarayıcı tabanlı hafif yığın. |
+| **Sonuç** | Kullanıcı bilinçli seçimle 3 katmanlı mühür simüle eder; onaylayınca “size özel” sertifika metni ve HD PNG alır. |
 ---
 *Bu doküman, `gokturk_proje` kod tabanının mevcut davranışını kaynak kabul eder. Kod değiştikçe PRD sürümü güncellenmelidir.*

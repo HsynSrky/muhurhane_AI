@@ -1,4 +1,4 @@
-"""HTTP uçları."""
+"""HTTP uçları. Canlı site bunları kullanmaz; yerel araç / isteğe bağlı ölçüm içindir."""
 
 from __future__ import annotations
 
@@ -7,20 +7,31 @@ import json
 from collections.abc import Callable
 from typing import Any
 
-from fastapi import APIRouter, Depends, Request, Response, status
+from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 
+from ..config import get_settings
 from ..container import Container
+from ..infrastructure.rate_limit import SlidingWindowLimiter
 from .schemas import EventRequest, SealSpecRequest, TransliterateRequest
 
 router = APIRouter(prefix="/api")
 
-# Büyük gövdeler (katalog ~400 KB) sürüm başına bir kez serileştirilir.
+# Katalog ~36 kB; sürüm başına bir kez serileştirilir.
 # Anahtar: uç adı → (sürüm, gövde, ETag).
 _serialised: dict[str, tuple[str, bytes, str]] = {}
+_share_limiter = SlidingWindowLimiter(limit=30, window_seconds=60)
+_event_limiter = SlidingWindowLimiter(limit=120, window_seconds=60)
 
 
 def get_container(request: Request) -> Container:
     return request.app.state.container
+
+
+def _client_ip(request: Request) -> str:
+    forwarded = request.headers.get("x-forwarded-for")
+    if forwarded:
+        return forwarded.split(",")[0].strip() or "unknown"
+    return request.client.host if request.client else "unknown"
 
 
 @router.get("/health")
@@ -47,7 +58,7 @@ def orkhon_map(
     request: Request,
     container: Container = Depends(get_container),
 ) -> Response:
-    """Orhun harf tabloları; ön uç anlık çeviriyazıyı bu veriyle yapar."""
+    """Orhun harf tabloları."""
     return _cached_json(
         request,
         "orkhon-map",
@@ -75,9 +86,12 @@ def certificate_text(
 
 @router.post("/share", status_code=status.HTTP_201_CREATED)
 def create_share(
+    request: Request,
     payload: SealSpecRequest,
     container: Container = Depends(get_container),
 ) -> dict[str, Any]:
+    if not _share_limiter.allow(_client_ip(request)):
+        raise HTTPException(status_code=status.HTTP_429_TOO_MANY_REQUESTS, detail="Çok fazla istek")
     return container.share.create(payload.model_dump())
 
 
@@ -91,15 +105,27 @@ def read_share(
 
 @router.post("/metrics/events", status_code=status.HTTP_202_ACCEPTED)
 def record_event(
+    request: Request,
     payload: EventRequest,
     container: Container = Depends(get_container),
 ) -> dict[str, str]:
+    if not _event_limiter.allow(_client_ip(request)):
+        raise HTTPException(status_code=status.HTTP_429_TOO_MANY_REQUESTS, detail="Çok fazla istek")
     container.metrics.record(payload.sessionId, payload.event, payload.payload)
     return {"status": "recorded"}
 
 
 @router.get("/metrics/summary")
-def metrics_summary(container: Container = Depends(get_container)) -> dict[str, Any]:
+def metrics_summary(
+    request: Request,
+    container: Container = Depends(get_container),
+) -> dict[str, Any]:
+    expected = get_settings().metrics_token
+    if not expected:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found")
+    given = request.headers.get("authorization", "")
+    if given != f"Bearer {expected}":
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Yetkisiz")
     return container.metrics.summary()
 
 
@@ -109,11 +135,7 @@ def _cached_json(
     version: str,
     build: Callable[[], dict[str, Any]],
 ) -> Response:
-    """Gövdeyi sürümü değişene kadar yeniden serileştirmeden sunar.
-
-    ``version`` veri kaynağının damgasıdır; katalog yeniden üretildiğinde
-    değişir ve gövde de, ETag de tazelenir (T10).
-    """
+    """Gövdeyi sürümü değişene kadar yeniden serileştirmeden sunar."""
     cached = _serialised.get(cache_key)
     if cached is None or cached[0] != version:
         body = json.dumps(build(), ensure_ascii=False, separators=(",", ":")).encode("utf-8")

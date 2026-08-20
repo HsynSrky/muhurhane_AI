@@ -1,5 +1,5 @@
 /**
- * Renk paletleri (PRD §10 + TDT kurumsal turkuazı).
+ * Renk paletleri (PRD §10).
  *
  * Render tek kaynaktan yapıldığı için (PRD-tamamlayici.md S-2) palet değerleri
  * burada yaşar; arka uç yalnızca stil kimliğini doğrular, renk üretmez.
@@ -29,9 +29,9 @@ export interface SealStyle {
 
 export const SEAL_STYLES: readonly SealStyle[] = [
   {
-    id: 'tdt-turkuaz',
-    name: 'TDT Açık Turkuaz',
-    description: 'Kurumsal kimlik tonu',
+    id: 'acik-turkuaz',
+    name: 'Açık Turkuaz',
+    description: 'Açık zemin, turkuaz mürekkep',
     ground: '#e8fafb',
     ink: '#0c3c46',
     mid: '#14707d',
@@ -63,7 +63,7 @@ export const SEAL_STYLES: readonly SealStyle[] = [
   },
 ] as const
 
-export const DEFAULT_STYLE_ID: StyleId = 'tdt-turkuaz'
+export const DEFAULT_STYLE_ID: StyleId = 'acik-turkuaz'
 
 const BY_ID = new Map(SEAL_STYLES.map((style) => [style.id, style]))
 

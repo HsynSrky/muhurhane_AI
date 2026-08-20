@@ -1,6 +1,4 @@
-# Mühürhane AI arka uç bağımlılıkları.
-# PRD AC-07 "yalnızca Streamlit + Pillow" maddesi geçersizdir;
-# gerekçesi docs/PRD-tamamlayici.md S-1/S-2.
+# Mühürhane isteğe bağlı arka uç. Canlı site bunları gerektirmez.
 
 fastapi==0.121.2
 uvicorn[standard]==0.40.0

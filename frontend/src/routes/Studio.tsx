@@ -1,8 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { useCallback, useEffect, useMemo } from 'react'
+import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 
-import { fetchShare } from '@/api/client'
 import type { SlotId } from '@/api/types'
 import DetailCard from '@/components/DetailCard'
 import Logo from '@/components/Logo'
@@ -10,6 +9,7 @@ import MotifStrip from '@/components/MotifStrip'
 import NameField from '@/components/NameField'
 import SealPreview from '@/components/SealPreview'
 import StylePicker from '@/components/StylePicker'
+import { specFromSearchParams } from '@/data/shareLink'
 import { useSeal } from '@/state/sealStore'
 import { track, trackOnce } from '@/state/session'
 
@@ -26,8 +26,6 @@ export default function Studio() {
 
   const {
     catalog,
-    loading,
-    error,
     selection,
     frame,
     symbol,
@@ -47,20 +45,14 @@ export default function Studio() {
     trackOnce('studio_view')
   }, [])
 
-  // Paylaşım linkiyle gelindiyse konfigürasyon geri yüklenir (E-1).
-  const shareCode = searchParams.get('m')
+  const shareApplied = useRef(false)
   useEffect(() => {
-    if (!shareCode) return
-    let active = true
-    fetchShare(shareCode)
-      .then((record) => {
-        if (active) applySpec(record.spec)
-      })
-      .catch(() => undefined)
-    return () => {
-      active = false
-    }
-  }, [shareCode, applySpec])
+    if (shareApplied.current) return
+    const incoming = specFromSearchParams(searchParams)
+    if (!incoming) return
+    shareApplied.current = true
+    applySpec(incoming)
+  }, [searchParams, applySpec])
 
   const handleToggle = useCallback(
     (slot: SlotId) => (motifId: string) => {
@@ -99,27 +91,9 @@ export default function Studio() {
 
   const isEmpty = motifCount === 0 && selection.latinName.trim() === ''
 
-  if (error) {
-    return (
-      <div className="grid min-h-screen place-items-center px-6">
-        <div className="panel max-w-md p-8 text-center">
-          <h1 className="mb-3 text-xl">Katalog yüklenemedi</h1>
-          <p className="mb-6 text-sm leading-relaxed text-[var(--color-muted)]">{error}</p>
-          <p className="text-xs text-[var(--color-muted)]">
-            Arka ucun çalıştığından emin olun; motif kataloğu için{' '}
-            <code className="text-[var(--color-turkuaz-soft)]">
-              python backend/scripts/normalize_motifs.py
-            </code>{' '}
-            komutunu çalıştırmanız gerekebilir.
-          </p>
-        </div>
-      </div>
-    )
-  }
-
   return (
     <div className="flex min-h-screen flex-col xl:h-screen xl:overflow-hidden">
-      <header className="flex shrink-0 items-center justify-between gap-6 border-b border-[var(--color-line)] px-6 py-4">
+      <header className="flex shrink-0 items-center gap-6 border-b border-[var(--color-line)] px-6 py-4">
         <div className="flex items-center gap-4">
           <Link to="/" aria-label="Ana sayfaya dön">
             <Logo size={38} />
@@ -131,55 +105,29 @@ export default function Studio() {
             </p>
           </div>
         </div>
-
-        <p className="hidden text-right text-xs leading-tight text-[var(--color-muted)] sm:block">
-          TDT 13. Buluşma
-          <br />
-          <span className="text-[var(--color-turkuaz-soft)]">Türkiye Anısına</span>
-        </p>
       </header>
 
       <main className="grid flex-1 gap-8 px-6 py-6 xl:min-h-0 xl:grid-cols-[minmax(0,1fr)_25rem] xl:gap-10">
         {/* Sol sütun: seçim şeritleri ve tarihçe. Uzun metin için bağımsız kayar. */}
         <div className="flex flex-col gap-6 xl:min-h-0 xl:overflow-y-auto xl:pr-3">
-          {loading || !catalog ? (
-            <div className="space-y-7" aria-hidden="true">
-              {[0, 1, 2].map((row) => (
-                <div key={row} className="space-y-3">
-                  <div className="h-5 w-32 animate-pulse rounded bg-[var(--color-surface)]" />
-                  <div className="flex gap-3">
-                    {[0, 1, 2, 3, 4].map((card) => (
-                      <div
-                        key={card}
-                        className="h-[10.5rem] w-[8.75rem] shrink-0 animate-pulse rounded-[var(--radius-card)] bg-[var(--color-surface)]"
-                      />
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <>
-              {catalog.slots.map((group, index) => (
-                <MotifStrip
-                  key={group.id}
-                  group={group}
-                  index={index + 1}
-                  hint={SLOT_HINTS[group.id]}
-                  selectedId={
-                    group.id === 'frame'
-                      ? selection.frameId
-                      : group.id === 'symbol'
-                        ? selection.symbolId
-                        : selection.tribeId
-                  }
-                  onToggle={handleToggle(group.id)}
-                />
-              ))}
+          {catalog.slots.map((group, index) => (
+            <MotifStrip
+              key={group.id}
+              group={group}
+              index={index + 1}
+              hint={SLOT_HINTS[group.id]}
+              selectedId={
+                group.id === 'frame'
+                  ? selection.frameId
+                  : group.id === 'symbol'
+                    ? selection.symbolId
+                    : selection.tribeId
+              }
+              onToggle={handleToggle(group.id)}
+            />
+          ))}
 
-              <DetailCard motifs={selectedMotifs} />
-            </>
-          )}
+          <DetailCard motifs={selectedMotifs} />
         </div>
 
         {/* Sağ sütun: canlı önizleme ve kişiselleştirme.

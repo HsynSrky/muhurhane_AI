@@ -12,7 +12,6 @@ import { readFile } from 'node:fs/promises'
 import { chromium } from 'playwright'
 
 const BASE = process.argv[2] ?? 'http://localhost:5173'
-const API = process.argv[3] ?? 'http://127.0.0.1:8000'
 
 const results = []
 let browser
@@ -79,22 +78,20 @@ async function main() {
   page.on('pageerror', (e) => consoleErrors.push(e.message))
 
   // ---------------------------------------------------------------- T1
-  await expectThrows('T1', 'Sunucular ayakta (FastAPI + Vite)', async () => {
-    const api = await fetch(`${API}/api/health`).then((r) => r.json())
+  await expectThrows('T1', 'Ön uç ayakta', async () => {
     const web = await fetch(BASE).then((r) => r.status)
     return {
-      passed: api.status === 'ok' && web === 200,
-      detail: `api=${api.status} web=${web}`,
+      passed: web === 200,
+      detail: `web=${web}`,
     }
   })
 
   // ------------------------------------------------------------- AC-01
   await page.goto(BASE, { waitUntil: 'networkidle' })
-  await expectThrows('AC-01', 'Landing: TDT logosu + başlık + CTA', async () => {
-    const logo = await page.getByAltText(/Türk Devletleri Teşkilatı/).isVisible()
+  await expectThrows('AC-01', 'Landing: başlık + CTA', async () => {
     const title = await page.getByRole('heading', { name: /Mühürhane/ }).isVisible()
     const cta = await page.getByRole('link', { name: /Atölyeye Gir/ }).isVisible()
-    return { passed: logo && title && cta, detail: `logo=${logo} başlık=${title} cta=${cta}` }
+    return { passed: title && cta, detail: `başlık=${title} cta=${cta}` }
   })
 
   // ---------------------------------------------------------------- T2
@@ -186,7 +183,7 @@ async function main() {
     await page.waitForTimeout(300)
     const after = await page.$eval('aside svg style', (n) => n.textContent)
     const bronze = after.includes('#463016')
-    await page.getByRole('button', { name: 'TDT Açık Turkuaz' }).click()
+    await page.getByRole('button', { name: 'Açık Turkuaz' }).click()
     await page.waitForTimeout(300)
     return { passed: before !== after && bronze, detail: `tunç mürekkebi uygulandı: ${bronze}` }
   })
@@ -205,17 +202,16 @@ async function main() {
   })
 
   // -------------------------------------------------------- T6 / AC-06a
-  await expectThrows('T6', 'Anı metni: isim + motifler + TDT 13. Buluşma', async () => {
+  await expectThrows('T6', 'Anı metni: isim + motifler', async () => {
     const text = (await page.locator('blockquote').textContent()) ?? ''
     const hasName = text.includes('Eren Bey')
     const hasMotifs =
       text.includes('Selçuklu Yıldızı') &&
       text.includes('Çift Başlı Kartal') &&
       text.includes('Kayı Damgası')
-    const hasEvent = text.includes('TDT 13. Buluşma')
     return {
-      passed: hasName && hasMotifs && hasEvent,
-      detail: `isim=${hasName} motifler=${hasMotifs} etkinlik=${hasEvent}`,
+      passed: hasName && hasMotifs,
+      detail: `isim=${hasName} motifler=${hasMotifs}`,
     }
   })
 

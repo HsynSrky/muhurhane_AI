@@ -4,14 +4,18 @@
 // normalize_motifs.py'yi koşturur, sunucu yeniden başlatılmadan kartın
 // stüdyoda görünüp mühre işlendiğini ölçer, sonra her şeyi geri alır.
 import { execFileSync } from 'node:child_process'
-import { readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { chromium } from 'playwright'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const WEB = process.env.T10_WEB ?? 'http://localhost:5173'
-const PYTHON = process.env.T10_PYTHON ?? join(ROOT, '.venv', 'Scripts', 'python.exe')
+const venvUnix = join(ROOT, '.venv', 'bin', 'python')
+const venvWin = join(ROOT, '.venv', 'Scripts', 'python.exe')
+const PYTHON =
+  process.env.T10_PYTHON ??
+  (existsSync(venvUnix) ? venvUnix : existsSync(venvWin) ? venvWin : 'python3')
 
 const MOTIF_ID = '2.9'
 const MOTIF_NAME = 'T10 Deneme Damgası'
@@ -51,6 +55,7 @@ try {
   try {
     const page = await browser.newPage({ viewport: { width: 1440, height: 900 } })
     await page.goto(`${WEB}/atolye`, { waitUntil: 'networkidle' })
+    await page.reload({ waitUntil: 'networkidle' })
 
     const card = page.getByRole('button', { name: new RegExp(MOTIF_NAME, 'i') }).first()
     const visible = await card

@@ -7,10 +7,7 @@ interface DetailCardProps {
 }
 
 /**
- * Seçili motiflerin uzun tarihçeleri (AC-02).
- *
- * Kartta yalnızca kısa blurb duruyor; uzun metin ancak kullanıcı o motifi
- * seçtiğinde açılıyor. Bilgi kademeli veriliyor ki ekran ilk bakışta yormasın.
+ * Seçili motiflerin uzun tarihçeleri (AC-02) ve kısa kaynak künyesi.
  */
 export default function DetailCard({ motifs }: DetailCardProps) {
   const reduceMotion = useReducedMotion()
@@ -19,7 +16,7 @@ export default function DetailCard({ motifs }: DetailCardProps) {
     return (
       <div className="panel p-5">
         <p className="text-sm leading-relaxed text-[var(--color-muted)]">
-          Bir motif seçtiğinizde tarihçesi burada açılır.
+          Bir motif seçtiğinizde tarihçesi ve kaynak künyesi burada açılır.
         </p>
       </div>
     )
@@ -45,6 +42,18 @@ export default function DetailCard({ motifs }: DetailCardProps) {
             <p className="text-[0.86rem] leading-relaxed text-[var(--color-muted)]">
               {motif.history}
             </p>
+            {motif.citations.length > 0 && (
+              <ul className="mt-3 space-y-1 border-t border-[var(--color-line)] pt-3">
+                {motif.citations.map((citation) => (
+                  <li
+                    key={citation}
+                    className="text-[0.68rem] leading-snug text-[var(--color-muted)]"
+                  >
+                    {citation}
+                  </li>
+                ))}
+              </ul>
+            )}
           </motion.article>
         ))}
       </AnimatePresence>

@@ -1,17 +1,22 @@
 """Latin → Orhun çeviriyazısı (docs/PRD-tamamlayici.md 7. bölüm).
 
-Harf tabloları ``backend/data/orkhon_map.json`` dosyasındadır ve aynı dosya
-``/api/orkhon/map`` üzerinden ön uca da servis edilir: kural tabloları tek
-kaynakta tutulur, iki dilde ayrı ayrı yazılmaz.
+Harf tabloları ``backend/data/orkhon_map.json`` dosyasındadır. Ön uç aynı
+dosyayı derleme zamanında gömer; kural tabloları tek kaynakta tutulur.
 """
 
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any
+from typing import Any, Literal
 
 TURKISH_LOWER = str.maketrans({"I": "ı", "İ": "i"})
 MAX_ALIAS_DEPTH = 4
+MIXED_NOTE = (
+    "Karışık ünlülü ad: her ünsüz, kendi hecesinin ünlüsüne göre kalın veya ince yazıldı."
+)
+
+VowelClass = Literal["back", "front"]
+Harmony = Literal["back", "front", "mixed"]
 
 
 @dataclass(frozen=True, slots=True)
@@ -70,12 +75,14 @@ class OrkhonAlphabet:
             if not letters:
                 continue
             harmony = self._harmony(letters)
-            rendered = self._render_word(letters, harmony)
+            rendered = self._render_word(letters)
             if not rendered:
                 continue
             for letter in rendered:
                 if letter.note:
                     notes[letter.note] = None
+            if harmony == "mixed":
+                notes[MIXED_NOTE] = None
             words.append(
                 Word(
                     latin=raw_word,
@@ -101,24 +108,57 @@ class OrkhonAlphabet:
     def _is_vowel(self, letter: str) -> bool:
         return letter in self.vowels
 
-    def _harmony(self, letters: list[str]) -> str:
-        """Kelimenin ünlü sınıfı; belirleyici son ünlüdür (kural 7.5/2)."""
-        for letter in reversed(letters):
-            if letter in self.front:
-                return "front"
-            if letter in self.back:
-                return "back"
-        return "back"
+    def _harmony(self, letters: list[str]) -> Harmony:
+        """Kelime özeti; harf seçimini etkilemez."""
+        seen: VowelClass | None = None
+        for letter in letters:
+            cls = self._class_of_vowel(letter)
+            if cls is None:
+                continue
+            if seen is None:
+                seen = cls
+            elif seen != cls:
+                return "mixed"
+        return seen or "back"
 
-    def _nearest_vowel(self, letters: list[str], index: int) -> str | None:
-        """``k`` biçimini seçmek için en yakın ünlü: önce sonraki, sonra önceki."""
-        for step in range(index + 1, len(letters)):
-            if self._is_vowel(letters[step]):
-                return letters[step]
+    def _class_of_vowel(self, letter: str | None) -> VowelClass | None:
+        if letter is None:
+            return None
+        if letter in self.front:
+            return "front"
+        if letter in self.back:
+            return "back"
+        return None
+
+    def _syllable_vowel(self, letters: list[str], index: int) -> str | None:
+        """Ünsüzün hece ünlüsü (PRD 7.5).
+
+        İki ünlü arasında son ünsüz sonraki hecenin başı, kalanı önceki
+        hecenin sonudur. Baştaki ünsüzler ilk ünlüye, sondakiler son ünlüye bağlanır.
+        """
+        if self._is_vowel(letters[index]):
+            return letters[index]
+
+        prev: int | None = None
+        nxt: int | None = None
         for step in range(index - 1, -1, -1):
             if self._is_vowel(letters[step]):
-                return letters[step]
-        return None
+                prev = step
+                break
+        for step in range(index + 1, len(letters)):
+            if self._is_vowel(letters[step]):
+                nxt = step
+                break
+
+        if prev is None and nxt is None:
+            return None
+        if prev is None:
+            return letters[nxt]
+        if nxt is None:
+            return letters[prev]
+        if index == nxt - 1:
+            return letters[nxt]
+        return letters[prev]
 
     def _resolve_alias(self, letter: str) -> tuple[str, str | None]:
         note = self.approximations.get(letter)
@@ -130,7 +170,7 @@ class OrkhonAlphabet:
             current = nxt
         return current, note
 
-    def _render_word(self, letters: list[str], harmony: str) -> list[Letter]:
+    def _render_word(self, letters: list[str]) -> list[Letter]:
         rendered: list[Letter] = []
         index = 0
         while index < len(letters):
@@ -144,35 +184,34 @@ class OrkhonAlphabet:
 
             base = self.digraphs.get(latin, latin)
             base, note = self._resolve_alias(base)
-            glyph = self._glyph_for(base, letters, index, harmony)
+            glyph = self._glyph_for(base, letters, index)
             if glyph is not None:
                 rendered.append(Letter(latin=latin, orkhon=glyph, note=note))
             index += consumed
         return rendered
 
-    def _glyph_for(
-        self, base: str, letters: list[str], index: int, harmony: str
-    ) -> str | None:
+    def _glyph_for(self, base: str, letters: list[str], index: int) -> str | None:
         if base in self.vowels:
             return self.vowels[base]
         if base in self.single:
             return self.single[base]
         if base in self.dual:
-            return self.dual[base][harmony]
+            cls = self._class_of_vowel(self._syllable_vowel(letters, index)) or "back"
+            return self.dual[base][cls]
         if base in self.quad:
-            return self._quad_glyph(self.quad[base], letters, index, harmony)
+            return self._quad_glyph(self.quad[base], letters, index)
         return None
 
-    def _quad_glyph(
-        self, forms: dict[str, str], letters: list[str], index: int, harmony: str
-    ) -> str:
-        """``k`` dört biçimlidir: ünlü sınıfı + komşu ünlünün yuvarlaklığı (7.4)."""
-        neighbour = self._nearest_vowel(letters, index)
-        if harmony == "front":
-            if neighbour in self.rounded:
+    def _quad_glyph(self, forms: dict[str, str], letters: list[str], index: int) -> str:
+        """``k`` dört biçimlidir: hece ünlüsünün sınıfı + yuvarlaklığı (7.4)."""
+        neighbour = self._syllable_vowel(letters, index)
+        rounded = neighbour in self.rounded
+        cls = self._class_of_vowel(neighbour) or "back"
+        if cls == "front":
+            if rounded:
                 return forms["frontRounded"]
             return forms["frontPlain"]
-        if neighbour in self.rounded:
+        if rounded:
             return forms["backRounded"]
         if neighbour == "ı":
             return forms["backDotless"]

@@ -1,4 +1,4 @@
-# Mühürhane AI — PRD Tamamlayıcı Doküman
+# Mühürhane — PRD Tamamlayıcı Doküman
 
 **Sürüm:** 1.1-T · **Tarih:** 2026-08-09
 **Kapsam:** Elimizdeki `prd.text.txt` dosyası 10. bölümün ortasında başlıyor. Bu doküman eksik olan **1–9. bölümleri** tamamlar ve uygulama sırasında PRD'den sapılan her noktayı kayıt altına alır.
@@ -19,6 +19,7 @@ Aşağıdaki maddeler PRD'nin yazıldığı andaki varsayımların uygulanabilir
 | S-2 | Pillow tabanlı render motoru + mini SVG parser (Risk tablosu) | Kompozisyon tarayıcıda SVG olarak kurulur; HD PNG aynı SVG'den canvas ile üretilir | İki ayrı render motoru (sunucuda Pillow, tarayıcıda önizleme) kaçınılmaz olarak birbirinden ayrışır. Tek kaynak = önizleme ile çıktı bit düzeyinde aynı. Ek fayda: indirme anında, sunucu render yükü sıfır. |
 | S-3 | `OrkhonFont.ttf` zorunlu | **Noto Sans Old Turkic** (SIL OFL-1.1) | Belirtilen font dosyası `assets/` içinde yok. Noto Sans Old Turkic, Old Turkic bloğunun (U+10C00–U+10C48) 77 karakterini kapsıyor ve ticari kullanıma açık. |
 | S-4 | `python -m streamlit run app.py` (16. bölüm) | `uvicorn` + `vite` (bkz. README) | S-1'in sonucu. |
+| S-5 | Ürün adı “Mühürhane AI”; katalog/çeviri/anı metni FastAPI | Ad “Mühürhane”; katalog, Orhun ve anı metni derleme zamanında ön uca gömülür; paylaşım URL parametresi | Canlı ortamda ayrı API / LLM anahtarı yok. “AI” beklentisi (PRD 14) kalkar; site statik dosya olarak yayınlanır. |
 
 ### 0.2 Assets kaynaklı zorunlu müdahaleler
 
@@ -36,7 +37,7 @@ Aşağıdaki maddeler PRD'nin yazıldığı andaki varsayımların uygulanabilir
 
 | # | Ekleme | Gerekçe |
 |---|---|---|
-| E-1 | Paylaşım linki (`/api/share`, SQLite) | Etkinlikte katılımcının mührünü tekrar açabilmesi / paylaşabilmesi. |
+| E-1 | Paylaşım linki (URL sorgu parametreleri; isteğe bağlı SQLite kısa kod) | Etkinlikte katılımcının mührünü tekrar açabilmesi / paylaşabilmesi. Sunucu yokken de çalışır. |
 | E-2 | Metrik toplama (`/api/metrics`) | PRD 13. bölüm "ölçüm henüz bağlı değil" diyor; bağlandı. |
 | E-3 | Klavye erişilebilirliği + `prefers-reduced-motion` | PRD'de erişilebilirlik başlığı yok. |
 | E-4 | Motif normalizasyonu derleme zamanına alındı (`motifs.generated.json`) | Çalışma anında SVG parse edilmiyor; ilk boyama hızlanıyor. |
@@ -47,13 +48,13 @@ Aşağıdaki maddeler PRD'nin yazıldığı andaki varsayımların uygulanabilir
 
 ## 1. Ürün Vizyonu
 
-**Mühürhane AI**, Türk kültürel sembollerini anlaşılır ve bilinçli bir seçim akışıyla kişiye özel dijital damgaya dönüştüren tarayıcı tabanlı bir atölyedir.
+**Mühürhane**, Türk kültürel sembollerini anlaşılır ve bilinçli bir seçim akışıyla kişiye özel dijital damgaya dönüştüren tarayıcı tabanlı bir atölyedir.
 
 Kullanıcı üç katman seçer — dış kuşak süslemesi, merkez arma, boy damgası — adını yazar, mührü canlı olarak oluşurken izler; onayladığında filigransız HD çıktısını ve "size özel üretilmiştir" anı metnini alır.
 
-**Konumlandırma:** Bu bir *generative AI* ürünü değildir. "AI" marka adının parçasıdır; sistem kurallı bir kompozisyon motorudur. Bu ayrım PRD 14. bölümde risk olarak da işaretlenmiştir ve arayüzde açıkça belirtilir.
+**Konumlandırma:** Bu bir *generative AI* ürünü değildir. Sistem kurallı bir kompozisyon motorudur; canlı sürümde arka uç veya model API’si yoktur.
 
-**Bağlam:** TDT 13. Buluşma · Türkiye anısına · Anadolu Selçuklu odaklı · jüri/etkinlik prototipi.
+**Bağlam:** Anadolu Selçuklu odaklı · tarayıcı tabanlı damga atölyesi.
 
 ---
 
@@ -143,7 +144,7 @@ Dosya adındaki numara slot'u belirler: `1.x` = symbol, `2.x` = tribe, `3.x` = f
 |---|---|---|
 | 2.1 | Kayı Damgası | Bozok kolu · "sağlam, güçlü" · Osmanlı'nın çıktığı boy |
 | 2.2 | Kınık Damgası | Üçok kolu · Büyük Selçuklu hanedanının boyu |
-| 2.3 | Salur Damgası | Bozok kolu · "kılıç sallayan" · kaz ayağı formu |
+| 2.3 | Salur Damgası | Üçok kolu · Dağ Han · Dede Korkut’ta Salur Kazan |
 | 2.4 | Afşar Damgası | Bozok kolu · "işini çabuk gören" · yay formu |
 | 2.5 | Bayındır Damgası | Üçok kolu · "bolluk, refah" · Akkoyunlu'nun boyu |
 
@@ -153,7 +154,7 @@ Dosya adındaki numara slot'u belirler: `1.x` = symbol, `2.x` = tribe, `3.x` = f
 
 - **2.2 Kınık** — Üçok kolunun boylarından olan Kınık, adını "her yerde aziz, muteber" anlamından alır. Büyük Selçuklu hanedanı bu boydan çıkmış; Selçuk Bey ve ardından Tuğrul ile Çağrı Beyler önderliğinde Horasan'dan Anadolu'ya uzanan devlet bu boyun adıyla anılmıştır. Damgası yalın, açılı çizgilerden oluşur.
 
-- **2.3 Salur** — Bozok kolunun güçlü boylarından Salur, "kılıç sallayan, hükmeden" anlamındadır. Dede Korkut anlatılarının merkezî kahramanlarının çoğu Salur boyundandır. Damgası "kaz ayağı" olarak bilinen üç çatallı biçimdir; geleneksel yorumda Merih (Mars) yıldızıyla ilişkilendirilir.
+- **2.3 Salur** — Üçok kolundandır (Dağ Han). Kâşgarlı’da Salgur; Reşîdüddin adı halk etimolojisiyle açıklar. Dede Korkut’ta Salur Kazan merkezî kahramandır. “Kaz ayağı” geç dönem popüler damga okumasıdır.
 
 - **2.4 Afşar** — Adı "işini çabuk gören, çevik" anlamına gelen Afşar boyu, Bozok kolundandır. Anadolu'da Karamanoğulları'nın kuruluşunda etkili olmuş, sonraki yüzyıllarda İran'da Afşar hanedanını kurmuştur. Damgası dikey bir gövdeye yaslanmış yay biçimli kıvrımdan oluşur.
 
@@ -260,11 +261,13 @@ Tuval **1000 × 1000**, merkez **(500, 500)**. AC-03'ün "üç motif görsel ola
 
 ### 7.5 Ünlü uyumu kuralı
 
-1. Kelime içindeki ünlüler taranır. `a, ı, o, u` → **kalın (arka)** sınıf; `e, i, ö, ü` → **ince (ön)** sınıf.
-2. Karışık kelimede **son ünlü** belirleyicidir (Türkçe ekleşme mantığıyla uyumlu).
+Orhun alfabesinde çift biçimli ünsüzün kalın/ince seçimi, **o ünsüzün hece ünlüsüne** bağlıdır. Tarihî metinlerde karışık ünlülü kelime yok denecek kadar azdır; Ahmet, Ayşe, Köksal gibi modern adlar hece hece yazılır. Kelimenin son ünlüsü bütün ünsüzlere uygulanmaz.
+
+1. Kelime Türkçe heceleme ile hecelenir: iki ünlü arasındaki ünsüzlerden **sonuncusu** sonraki hecenin başı, kalanı önceki hecenin sonudur. Kelime başındaki ünsüzler ilk ünlüye, kelime sonundakiler son ünlüye bağlanır.
+2. Çift biçimli ünsüz, bağlı olduğu ünlünün sınıfını alır: `a, ı, o, u` → **kalın (arka)**; `e, i, ö, ü` → **ince (ön)**.
 3. Hiç ünlü yoksa varsayılan **kalın** sınıftır.
-4. Sınıf, o kelimedeki tüm çift biçimli ünsüzlere uygulanır.
-5. `k` için ayrıca en yakın ünlünün yuvarlaklığı kontrol edilir (7.4).
+4. `k` / `h` için aynı hece ünlüsü hem kalın/ince hem yuvarlaklık seçer (7.4).
+5. Kelime düzeyi `harmony` alanı yalnızca özet içindir (`back` / `front` / `mixed`); harf seçimini etkilemez.
 
 ### 7.6 Bilinçli tercihler
 
@@ -283,7 +286,7 @@ Tuval **1000 × 1000**, merkez **(500, 500)**. AC-03'ün "üç motif görsel ola
 ```
 
 ### 8.1 Landing (AC-01)
-TDT logosu, "Mühürhane AI" başlığı, tek cümlelik tanım, "Atölyeye Gir" birincil CTA. "Bu bir generative model değildir" notu ayak bölümünde.
+"Mühürhane" başlığı, tek cümlelik tanım, "Atölyeye Gir" birincil CTA.
 
 ### 8.2 Studio (AC-02, AC-03, AC-05)
 Tek ekran, iki sütun:

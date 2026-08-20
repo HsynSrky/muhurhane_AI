@@ -59,6 +59,29 @@ export default function NameField({ value, maxLength, orkhon, onChange }: NameFi
           <p className="orkhon text-xl leading-relaxed text-[var(--color-turkuaz-soft)]">
             {orkhon.text}
           </p>
+          <div className="mt-2 flex flex-wrap items-end gap-x-4 gap-y-2" dir="ltr">
+            {orkhon.words.map((word, wordIndex) => (
+              <div key={`${word.latin}-${wordIndex}`} className="flex gap-1.5">
+                {word.letters.map((letter, letterIndex) => (
+                  <span
+                    key={`${letter.latin}-${letterIndex}`}
+                    className="flex min-w-[1.15rem] flex-col items-center"
+                  >
+                    <span className="font-[family-name:var(--font-orkhon)] text-lg leading-none text-[var(--color-turkuaz-soft)]">
+                      {letter.orkhon}
+                    </span>
+                    <span className="mt-1 text-[0.65rem] leading-none text-[var(--color-muted)]">
+                      {letter.latin}
+                    </span>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+          <p className="mt-2 text-[0.7rem] leading-snug text-[var(--color-muted)]">
+            Çeviriyazı: kalın/ince ünsüz hecenin kendi ünlüsüne göredir. a ile e, ı ile i aynı
+            işarettir.
+          </p>
           {orkhon.notes.length > 0 && (
             <ul className="mt-2 space-y-1">
               {orkhon.notes.map((note) => (

@@ -1,0 +1,10 @@
+.git
+.venv
+venv
+frontend/node_modules
+frontend/dist
+frontend/.tmp
+**/*.sqlite3
+**/*.log
+.DS_Store
+.cursor

@@ -91,4 +91,5 @@ def _to_motif(entry: dict[str, Any]) -> Motif:
         bbox=bbox,  # type: ignore[arg-type]
         body=entry["body"],
         repeat=entry.get("repeat"),
+        citations=tuple(str(item) for item in entry.get("citations") or ()),
     )

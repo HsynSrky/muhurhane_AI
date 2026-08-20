@@ -87,7 +87,7 @@ class CatalogService:
                 )
             return motif.id
 
-        raw_style = raw.get("styleId") or StyleId.TDT_TURKUAZ.value
+        raw_style = raw.get("styleId") or StyleId.ACIK_TURKUAZ.value
         try:
             style = StyleId(raw_style)
         except ValueError as error:
@@ -125,6 +125,7 @@ def _motif_payload(motif: Motif) -> dict[str, Any]:
         "period": motif.period,
         "blurb": motif.blurb,
         "history": motif.history,
+        "citations": list(motif.citations),
         "repeat": motif.repeat,
         "bbox": list(motif.bbox),
         "body": motif.body,

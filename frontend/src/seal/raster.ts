@@ -124,7 +124,7 @@ export function buildFileName(latinName: string): string {
     .trim()
     .replace(/[\s_-]+/g, '-')
 
-  return slug ? `muhur-${slug}.png` : 'muhur-tdt-13-bulusma.png'
+  return slug ? `muhur-${slug}.png` : 'muhurhane.png'
 }
 
 export function triggerDownload(blob: Blob, fileName: string): void {

@@ -59,7 +59,7 @@ class MetricsService:
         name_fill = _ratio(sum(1 for s in studio if _name_filled(s)), len(studio))
         durations = [d for d in (_duration(s) for s in sessions) if d is not None]
         styles = _style_distribution(studio)
-        turquoise = _ratio(styles.get(StyleId.TDT_TURKUAZ.value, 0), sum(styles.values()))
+        turquoise = _ratio(styles.get(StyleId.ACIK_TURKUAZ.value, 0), sum(styles.values()))
 
         return {
             "sessions": {
@@ -102,7 +102,7 @@ class MetricsService:
                 _metric(
                     "turquoiseShare",
                     "Stil dağılımı",
-                    "TDT Açık Turkuaz tercihi",
+                    "Açık Turkuaz tercihi",
                     turquoise,
                     "ratio",
                 ),

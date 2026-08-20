@@ -1,41 +1,24 @@
-# Mühürhane AI
+# Mühürhane
 
-[![Repo](https://img.shields.io/badge/GitHub-muhurhane__AI-111?logo=github)](https://github.com/merenaydin23/muhurhane_AI)
+[![Repo](https://img.shields.io/badge/GitHub-muhurhane__AI-111?logo=github)](https://github.com/HsynSrky/muhurhane_AI)
 
-TDT 13. Buluşma için Anadolu Selçuklu motiflerinden kişiye özel dijital mühür üreten web uygulaması.
+Anadolu Selçuklu motiflerinden kişiye özel dijital mühür üreten web uygulaması.
 
-Katılımcı bir kuşak, bir arma ve bir damga seçer, adını yazar; mühür tarayıcıda anında kurulur ve **3000×3000 HD PNG** sertifika olarak indirilir.
+Katılımcı bir kuşak, bir arma ve bir damga seçer, adını yazar; mühür tarayıcıda anında kurulur ve **3000×3000 HD PNG** sertifika olarak indirilir. Üretken yapay zekâ modeli yoktur; sunucu da gerekmez.
 
 | Katman | Teknoloji |
 |---|---|
-| Arka uç | FastAPI (katalog, Orhun çevirisi, anı metni, paylaşım, metrik) |
 | Ön uç | React + Vite + TypeScript + Tailwind + Framer Motion |
+| Veri | Derleme zamanında gömülen motif kataloğu ve Orhun tablosu |
 | Render | Tarayıcıda SVG kompozisyon; PNG aynı SVG’den canvas ile |
 
-PRD sapmaları, motif tarihçeleri, Orhun harf tablosu ve mühür geometrisi: [`docs/PRD-tamamlayici.md`](docs/PRD-tamamlayici.md).
+PRD sapmaları ve motif tarihçeleri: [`docs/PRD-tamamlayici.md`](docs/PRD-tamamlayici.md).
 
 ---
 
 ## Hızlı başlangıç
 
-Gereksinim: **Python 3.12+** ve **Node 20+**.
-
-### 1. Arka uç
-
-```bash
-python -m venv .venv
-
-# Windows
-.venv\Scripts\activate
-# Linux / macOS
-# source .venv/bin/activate
-
-pip install -r backend/requirements.txt
-python backend/scripts/normalize_motifs.py
-python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --app-dir backend
-```
-
-### 2. Ön uç (ayrı terminal)
+Gereksinim: **Node 20+**. Python yalnızca motif SVG’si eklerken gerekir.
 
 ```bash
 cd frontend
@@ -43,10 +26,9 @@ npm install
 npm run dev
 ```
 
-- Uygulama: http://localhost:5173  
-- API dokümanı: http://127.0.0.1:8000/docs  
+Uygulama: http://localhost:5173
 
-`normalize_motifs.py`, `assets/selcuklu/*.svg` dosyalarını okuyup `backend/data/motifs.generated.json` üretir. Bu adım atlanırsa arka uç hata verir. Katalog dosyası değişince sunucu kendini tazeler; yeni motif için yeniden başlatmak gerekmez.
+Yeni motif eklediyseniz önce `python backend/scripts/normalize_motifs.py` çalıştırın; geliştirme sunucusu katalog dosyasını kendiliğinden tazeler.
 
 ---
 
@@ -54,86 +36,79 @@ npm run dev
 
 | Rota | Ekran | Ne yapar |
 |---|---|---|
-| `/` | Giriş | TDT logosu, “Mühürhane AI” başlığı, örnek mühür, “Atölyeye Gir” |
+| `/` | Giriş | “Mühürhane” başlığı, örnek mühür, “Atölyeye Gir” |
 | `/atolye` | Stüdyo | Üç motif şeridi, isim girişi, stil seçici, filigranlı canlı önizleme |
 | `/sertifika` | Sertifika | Filigransız mühür, kişisel anı metni, HD PNG indirme, paylaşım linki |
+
+Paylaşım linki seçimleri URL’de taşır (`/atolye?f=3.1&s=1.1&t=2.1&n=Eren+Bey`). Arka uç yok.
 
 Stüdyoda indirme bilerek kapalıdır (AC-05): filigranlı hâl simülasyondur; indirilebilir çıktı yalnızca onaydan sonra verilir.
 
 ---
 
-## Mimari
+## Yayına alma
 
-```
-assets/selcuklu/*.svg
-        │  normalize_motifs.py
-        ▼
-backend/data/motifs.generated.json
-        │  /api/catalog
-        ▼
-frontend/src/seal/  geometry → compose → SVG
-                              ├─ canlı önizleme (DOM)
-                              └─ raster.ts → 3000×3000 PNG
+`npm run build` çıktısı (`frontend/dist`) tek başına statik sitedir. `/api` gerekmez.
+
+```bash
+cd frontend
+npm ci
+npm run build
 ```
 
-Arka uç Clean Architecture: `domain` → `application` → `infrastructure` → `api`.
+`frontend/dist` klasörünü Netlify, Vercel, GitHub Pages, Caddy veya nginx’e koyun. SPA yönlendirmesi hazır:
 
-Mühür kompozisyonu sunucuda değil tarayıcıda kurulur; önizleme ile indirilen dosya tek kaynaktan üretilir.
+- Vercel: kökteki `vercel.json`
+- Netlify: `netlify.toml`
+- nginx: `deploy/nginx.conf`
 
-### API uç noktaları
+Docker:
 
-| Metot | Yol | İşlev |
-|---|---|---|
-| GET | `/api/health` | Sağlık kontrolü |
-| GET | `/api/catalog` | 15 motif + bölge etiketleri + stiller |
-| GET | `/api/orkhon/map` | Latin–Orhun harf tablosu |
-| POST | `/api/transliterate` | Metni Orhun alfabesine çevirir |
-| POST | `/api/certificate-text` | Kişisel anı metni üretir |
-| POST | `/api/share` · GET `/api/share/{code}` | Kısa kodla paylaşım |
-| POST | `/api/metrics/events` · GET `/api/metrics/summary` | Kullanım ölçümü (SQLite) |
+```bash
+docker build -t muhurhane .
+docker run --rm -p 8080:80 muhurhane
+```
+
+GitHub Pages alt yolda yayınlıyorsanız:
+
+```bash
+VITE_BASE=/muhurhane_AI/ npm run build --prefix frontend
+```
 
 ---
 
 ## Doğrulama
 
-Her iki sunucu ayaktayken:
-
 ```bash
 cd frontend
-npm run verify      # T1–T9, AC-01..AC-06 ve erişilebilirlik
+npm test
+npm run typecheck
+npm run verify      # T1–T9, AC-01..AC-06 (ön uç ayakta olmalı)
 npm run verify:t10  # yeni SVG arayüzde belirir mi
 npm run build && npm run preview
 npm run perf
 ```
 
+Python tarafı (isteğe bağlı arka uç):
+
 ```bash
-python backend/scripts/bench_api.py
+PYTHONPATH=backend python -m unittest discover -s backend/tests -v
 ```
-
-### Son ölçüm sonuçları
-
-| Bütçe | Hedef | Ölçülen |
-|---|---|---|
-| Giriş LCP | &lt; 1.5 s | 188 ms |
-| Stüdyo LCP | &lt; 1.5 s | 232 ms |
-| API p95 | &lt; 20 ms | 0.9–1.2 ms |
-| İlk yük aktarımı | — | ~240 kB |
 
 ---
 
-## Yayına alma
+## İsteğe bağlı arka uç
 
-`npm run build` çıktısı (`frontend/dist`) statik sunulur; `/api/*` FastAPI’ye yönlendirilir. Geliştirmede Vite vekilliği, üretimde nginx/Caddy vb. kullanılır.
+Canlı site FastAPI kullanmaz. Yerel katalog API’si, paylaşım kodu ve ölçüm için duruyor; ölçüm özeti `MUHURHANE_METRICS_TOKEN` olmadan kapalıdır.
 
-Paylaşım ve metrikler `backend/data/muhurhane.sqlite3` içinde tutulur; kalıcı birim olarak bağlanmalıdır.
+```bash
+python -m venv .venv
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
+pip install -r backend/requirements.txt
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --app-dir backend
+```
 
-**Ortam değişkenleri**
-
-| Değişken | Açıklama |
-|---|---|
-| `MUHURHANE_CATALOG_FILE` | Motif katalog yolu |
-| `MUHURHANE_DB_FILE` | SQLite dosya yolu |
-| `MUHURHANE_CORS_ORIGINS` | Virgülle ayrılmış izinli origin listesi |
+Ortam değişkenleri `.env.example` dosyasındadır.
 
 ---
 
@@ -143,17 +118,16 @@ Paylaşım ve metrikler `backend/data/muhurhane.sqlite3` içinde tutulur; kalıc
 assets/selcuklu/        15 ham SVG motif
 backend/
   app/domain/           model, stiller, anı metni
-  app/application/      servisler
+  app/application/      servisler (isteğe bağlı API)
   app/infrastructure/   JSON katalog, SQLite
-  app/api/              rotalar, şemalar
-  scripts/              normalize_motifs.py, bench_api.py
-  data/                 motif_content.json, motifs.generated.json
+  scripts/              normalize_motifs.py
+  data/                 motif_content.json, motifs.generated.json, orkhon_map.json
 frontend/
+  src/data/             katalog yükleyici, sertifika metni, paylaşım URL
   src/seal/             geometry, compose, styles, orkhon, raster
   src/routes/           Landing, Studio, Certificate
-  src/components/       motif kartları, önizleme, stil seçici
-  scripts/              verify.mjs, check-t10.mjs, perf.mjs
-docs/PRD-tamamlayici.md
+deploy/nginx.conf
+Dockerfile
 ```
 
 ---
@@ -164,7 +138,7 @@ docs/PRD-tamamlayici.md
 2. `backend/data/motif_content.json` içine `name`, `slot` (`symbol` / `tribe` / `frame`), `blurb`, `history` ekleyin.
 3. `python backend/scripts/normalize_motifs.py` çalıştırın.
 
-Kart arayüzde kendiliğinden belirir.
+Kart arayüzde kendiliğinden belirir. Canlıya almadan `npm run build` gerekir.
 
 ---
 

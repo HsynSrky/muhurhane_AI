@@ -1,11 +1,11 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { createShare, fetchCertificateText } from '@/api/client'
-import type { CertificateText } from '@/api/types'
 import Logo from '@/components/Logo'
 import SealPreview from '@/components/SealPreview'
+import { buildCertificateText } from '@/data/certificate'
+import { buildShareUrl } from '@/data/shareLink'
 import { buildFileName, renderSealPng, triggerDownload } from '@/seal/raster'
 import { useSeal } from '@/state/sealStore'
 import { track, trackOnce } from '@/state/session'
@@ -13,9 +13,9 @@ import { track, trackOnce } from '@/state/session'
 export default function Certificate() {
   const navigate = useNavigate()
   const reduceMotion = useReducedMotion()
-  const { selection, composition, finalSvg, spec, motifCount, frame, symbol, tribe } = useSeal()
+  const { catalog, selection, composition, finalSvg, spec, motifCount, frame, symbol, tribe } =
+    useSeal()
 
-  const [certificate, setCertificate] = useState<CertificateText | null>(null)
   const [downloading, setDownloading] = useState(false)
   const [downloadError, setDownloadError] = useState<string | null>(null)
   const [shareUrl, setShareUrl] = useState<string | null>(null)
@@ -23,22 +23,22 @@ export default function Certificate() {
 
   const confirmed = selection.confirmed && motifCount > 0
 
+  const motifNames = useMemo(
+    () =>
+      [frame, symbol, tribe]
+        .filter((motif) => motif !== null)
+        .map((motif) => motif.name),
+    [frame, symbol, tribe],
+  )
+
+  const certificate = useMemo(
+    () => buildCertificateText(selection.latinName, motifNames, catalog.period),
+    [catalog.period, motifNames, selection.latinName],
+  )
+
   useEffect(() => {
     if (confirmed) trackOnce('certificate_view')
   }, [confirmed])
-
-  useEffect(() => {
-    if (!confirmed) return
-    let active = true
-    fetchCertificateText(spec)
-      .then((text) => {
-        if (active) setCertificate(text)
-      })
-      .catch(() => undefined)
-    return () => {
-      active = false
-    }
-  }, [confirmed, spec])
 
   const handleDownload = useCallback(async () => {
     setDownloading(true)
@@ -58,18 +58,16 @@ export default function Certificate() {
 
   const handleShare = useCallback(async () => {
     try {
-      const record = await createShare(spec)
-      const url = `${window.location.origin}/atolye?m=${record.code}`
+      const url = buildShareUrl(window.location.origin, spec, import.meta.env.BASE_URL)
       setShareUrl(url)
       await navigator.clipboard?.writeText(url)
       setShareCopied(true)
       setTimeout(() => setShareCopied(false), 2600)
     } catch {
-      setDownloadError('Paylaşım linki oluşturulamadı.')
+      setDownloadError('Paylaşım linki kopyalanamadı.')
     }
   }, [spec])
 
-  // AC-05: onaylanmamış mühür için resmî çıktı sunulmaz.
   if (!confirmed) {
     return (
       <div className="grid min-h-screen place-items-center px-6">
@@ -91,10 +89,6 @@ export default function Certificate() {
       </div>
     )
   }
-
-  const motifNames = [frame, symbol, tribe]
-    .filter((motif) => motif !== null)
-    .map((motif) => motif.name)
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -133,11 +127,13 @@ export default function Certificate() {
 
           <blockquote className="border-l-2 border-[var(--color-turkuaz)] pl-5">
             <p className="font-[family-name:var(--font-display)] text-[1.6rem] leading-snug text-[var(--color-parchment)]">
-              {certificate?.body ?? 'Anı metniniz hazırlanıyor…'}
+              {certificate.body}
             </p>
-            <footer className="mt-4 text-sm text-[var(--color-turkuaz-soft)]">
-              {certificate?.footer ?? 'TDT 13. Buluşma · Türkiye Anısına'}
-            </footer>
+            {certificate.footer ? (
+              <footer className="mt-4 text-sm text-[var(--color-turkuaz-soft)]">
+                {certificate.footer}
+              </footer>
+            ) : null}
           </blockquote>
 
           <dl className="mt-8 grid gap-4 border-t border-[var(--color-line)] pt-6 sm:grid-cols-2">

@@ -34,12 +34,12 @@ class StyleId(str, Enum):
     doğrular, renk üretmez.
     """
 
-    TDT_TURKUAZ = "tdt-turkuaz"
+    ACIK_TURKUAZ = "acik-turkuaz"
     ANTIK_TUNC = "antik-tunc"
     GECE_LACIVERT = "gece-lacivert"
 
 
-DEFAULT_STYLE = StyleId.TDT_TURKUAZ
+DEFAULT_STYLE = StyleId.ACIK_TURKUAZ
 
 MAX_NAME_LENGTH = 24
 
@@ -57,6 +57,7 @@ class Motif:
     bbox: tuple[float, float, float, float]
     body: str
     repeat: int | None = None
+    citations: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True, slots=True)

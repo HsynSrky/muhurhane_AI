@@ -528,6 +528,7 @@ def normalize_motif(path: Path, content: dict[str, dict]) -> dict:
         "blurb": meta["blurb"],
         "history": meta["history"],
         "repeat": meta.get("repeat"),
+        "citations": list(meta.get("citations") or []),
         "source": f"assets/selcuklu/{path.name}",
         "bbox": [
             round(min_x, 2),

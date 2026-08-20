@@ -68,7 +68,7 @@
 }
 
 @layer components {
-  /* Ana eylem: TDT turkuazı, mühür baskısı hissi veren yumuşak parıltı. */
+  /* Ana eylem: turkuaz, mühür baskısı hissi veren yumuşak parıltı. */
   .btn-primary {
     display: inline-flex;
     align-items: center;

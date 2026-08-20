@@ -1,13 +1,14 @@
 {
-  "name": "muhurhane-ai-frontend",
+  "name": "muhurhane-frontend",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "typecheck": "tsc -b --noEmit",
+    "test": "vitest run",
     "verify": "node scripts/verify.mjs",
     "verify:t10": "node scripts/check-t10.mjs",
     "perf": "node scripts/perf.mjs",
@@ -30,6 +31,7 @@
     "playwright": "^1.62.1",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.8.3",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
   }
 }

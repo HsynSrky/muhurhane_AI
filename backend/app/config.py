@@ -1,7 +1,7 @@
 """Uygulama ayarları.
 
 Değerler ortam değişkeniyle geçersiz kılınabilir; varsayılanlar yerel geliştirme
-içindir (bkz. README).
+içindir (bkz. README). Canlı site bu sürece ihtiyaç duymaz.
 """
 
 from __future__ import annotations
@@ -17,6 +17,8 @@ PROJECT_ROOT = BACKEND_DIR.parent
 DEFAULT_CORS_ORIGINS = (
     "http://localhost:5173",
     "http://127.0.0.1:5173",
+    "http://localhost:4173",
+    "http://127.0.0.1:4173",
 )
 
 
@@ -25,6 +27,7 @@ class Settings:
     catalog_file: Path
     database_file: Path
     cors_origins: tuple[str, ...]
+    metrics_token: str | None
 
     @property
     def project_root(self) -> Path:
@@ -34,6 +37,7 @@ class Settings:
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
     origins = os.getenv("MUHURHANE_CORS_ORIGINS")
+    token = (os.getenv("MUHURHANE_METRICS_TOKEN") or "").strip() or None
     return Settings(
         catalog_file=Path(
             os.getenv("MUHURHANE_CATALOG_FILE", BACKEND_DIR / "data" / "motifs.generated.json")
@@ -44,4 +48,5 @@ def get_settings() -> Settings:
         cors_origins=tuple(o.strip() for o in origins.split(",") if o.strip())
         if origins
         else DEFAULT_CORS_ORIGINS,
+        metrics_token=token,
     )

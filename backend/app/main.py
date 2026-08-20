@@ -36,9 +36,9 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 def create_app() -> FastAPI:
     settings = get_settings()
     app = FastAPI(
-        title="Mühürhane AI",
+        title="Mühürhane",
         version=__version__,
-        summary="Anadolu Selçuklu motiflerinden kişisel dijital mühür üreten atölyenin arka ucu.",
+        summary="Anadolu Selçuklu motiflerinden kişisel dijital mühür üreten atölyenin isteğe bağlı arka ucu.",
         lifespan=lifespan,
     )
 

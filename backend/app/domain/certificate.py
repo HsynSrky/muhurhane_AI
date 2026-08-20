@@ -3,7 +3,6 @@
 Şablon:
     {İsim}; bu damga {dönem} dönemine ait olup {motifler} motiflerini içerir.
     Size özel üretilmiştir.
-    TDT 13. Buluşma · Türkiye Anısına
 """
 
 from __future__ import annotations
@@ -11,18 +10,17 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 FALLBACK_NAME = "Değerli Konuk"
-FOOTER = "TDT 13. Buluşma · Türkiye Anısına"
 DEFAULT_PERIOD = "Anadolu Selçuklu"
 
 
 @dataclass(frozen=True, slots=True)
 class CertificateText:
     body: str
-    footer: str = FOOTER
+    footer: str = ""
 
     @property
     def full(self) -> str:
-        return f"{self.body}\n{self.footer}"
+        return f"{self.body}\n{self.footer}" if self.footer else self.body
 
 
 def join_names(names: list[str]) -> str:

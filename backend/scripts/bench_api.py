@@ -62,7 +62,7 @@ def main() -> int:
                         "symbolId": "1.1",
                         "tribeId": "2.1",
                         "latinName": "Eren Bey",
-                        "styleId": "tdt-turkuaz",
+                        "styleId": "acik-turkuaz",
                     },
                 ),
             ),

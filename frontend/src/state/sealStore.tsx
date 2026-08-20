@@ -1,28 +1,29 @@
 /**
  * Uygulama durumu: katalog, seçimler ve türetilmiş mühür kompozisyonu.
  *
- * Seçimler `sessionStorage`'a yazılır; sayfa yenilense de kaybolmaz (T8).
- * `confirmed` bayrağı yalnızca kullanıcı "Onayla" dediğinde kalkar ve
- * sertifika sayfasının kapısıdır (AC-05).
+ * Katalog derleme zamanında gömülüdür; ağ yok. Seçimler `sessionStorage`'a
+ * yazılır; sayfa yenilense de kaybolmaz (T8). `confirmed` bayrağı yalnızca
+ * kullanıcı "Onayla" dediğinde kalkar ve sertifika sayfasının kapısıdır (AC-05).
  */
 
 import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useMemo,
   useState,
   type ReactNode,
 } from 'react'
 
-import { fetchCatalog, fetchOrkhonMap } from '@/api/client'
 import type { Catalog, Motif, SealSpecPayload, SlotId, StyleId } from '@/api/types'
+import { loadCatalog, orkhonMap } from '@/data/catalog'
 import { composeSeal, type SealComposition } from '@/seal/compose'
 import { EMPTY_RESULT, OrkhonAlphabet, type OrkhonResult } from '@/seal/orkhon'
 import { DEFAULT_STYLE_ID, getStyle, type SealStyle } from '@/seal/styles'
 
 const STORAGE_KEY = 'muhurhane.selection'
+const catalog: Catalog = loadCatalog()
+const alphabet = new OrkhonAlphabet(orkhonMap)
 
 export interface Selection {
   frameId: string | null
@@ -61,9 +62,7 @@ function writeSelection(selection: Selection): void {
 }
 
 interface SealContextValue {
-  catalog: Catalog | null
-  loading: boolean
-  error: string | null
+  catalog: Catalog
   selection: Selection
   style: SealStyle
   frame: Motif | null
@@ -72,9 +71,7 @@ interface SealContextValue {
   motifCount: number
   orkhon: OrkhonResult
   composition: SealComposition
-  /** Filigranlı canlı önizleme (stüdyo). */
   previewSvg: string
-  /** Filigransız resmî çıktı (sertifika). */
   finalSvg: string
   spec: SealSpecPayload
   maxNameLength: number
@@ -95,33 +92,7 @@ const SLOT_FIELD: Record<SlotId, 'frameId' | 'symbolId' | 'tribeId'> = {
 }
 
 export function SealProvider({ children }: { children: ReactNode }) {
-  const [catalog, setCatalog] = useState<Catalog | null>(null)
-  const [alphabet, setAlphabet] = useState<OrkhonAlphabet | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
   const [selection, setSelection] = useState<Selection>(readSelection)
-
-  useEffect(() => {
-    let active = true
-
-    Promise.all([fetchCatalog(), fetchOrkhonMap()])
-      .then(([catalogData, orkhonMap]) => {
-        if (!active) return
-        setCatalog(catalogData)
-        setAlphabet(new OrkhonAlphabet(orkhonMap))
-      })
-      .catch((cause: unknown) => {
-        if (!active) return
-        setError(cause instanceof Error ? cause.message : 'Katalog yüklenemedi.')
-      })
-      .finally(() => {
-        if (active) setLoading(false)
-      })
-
-    return () => {
-      active = false
-    }
-  }, [])
 
   const update = useCallback((patch: Partial<Selection>) => {
     setSelection((current) => {
@@ -133,22 +104,22 @@ export function SealProvider({ children }: { children: ReactNode }) {
 
   const motifsById = useMemo(() => {
     const map = new Map<string, Motif>()
-    for (const slot of catalog?.slots ?? []) {
+    for (const slot of catalog.slots) {
       for (const motif of slot.motifs) map.set(motif.id, motif)
     }
     return map
-  }, [catalog])
+  }, [])
 
-  const frame = selection.frameId ? motifsById.get(selection.frameId) ?? null : null
-  const symbol = selection.symbolId ? motifsById.get(selection.symbolId) ?? null : null
-  const tribe = selection.tribeId ? motifsById.get(selection.tribeId) ?? null : null
+  const frame = selection.frameId ? (motifsById.get(selection.frameId) ?? null) : null
+  const symbol = selection.symbolId ? (motifsById.get(selection.symbolId) ?? null) : null
+  const tribe = selection.tribeId ? (motifsById.get(selection.tribeId) ?? null) : null
 
   const style = getStyle(selection.styleId)
 
   const orkhon = useMemo(() => {
-    if (!alphabet || !selection.latinName.trim()) return EMPTY_RESULT
+    if (!selection.latinName.trim()) return EMPTY_RESULT
     return alphabet.transliterate(selection.latinName)
-  }, [alphabet, selection.latinName])
+  }, [selection.latinName])
 
   const composition = useMemo<SealComposition>(
     () => ({
@@ -187,8 +158,6 @@ export function SealProvider({ children }: { children: ReactNode }) {
   const value = useMemo<SealContextValue>(
     () => ({
       catalog,
-      loading,
-      error,
       selection,
       style,
       frame,
@@ -200,14 +169,13 @@ export function SealProvider({ children }: { children: ReactNode }) {
       previewSvg,
       finalSvg,
       spec,
-      maxNameLength: catalog?.maxNameLength ?? 24,
+      maxNameLength: catalog.maxNameLength,
       selectMotif: (slot, motifId) => {
-        // Aynı karta tekrar basmak seçimi kaldırır: geri almak için ayrı düğme gerekmez.
         const field = SLOT_FIELD[slot]
         update({ [field]: selection[field] === motifId ? null : motifId, confirmed: false })
       },
       setName: (latinName) => update({ latinName, confirmed: false }),
-      setStyleId: (styleId) => update({ styleId }),
+      setStyleId: (styleId) => update({ styleId, confirmed: false }),
       confirm: () => update({ confirmed: true }),
       reset: () => {
         writeSelection(EMPTY_SELECTION)
@@ -224,9 +192,6 @@ export function SealProvider({ children }: { children: ReactNode }) {
         }),
     }),
     [
-      catalog,
-      loading,
-      error,
       selection,
       style,
       frame,

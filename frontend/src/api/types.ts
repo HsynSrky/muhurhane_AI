@@ -1,8 +1,8 @@
-/** Arka uç sözleşmesi (backend/app/api/routes.py). */
+/** Ön uç veri sözleşmesi. Katalog derleme zamanında gömülür. */
 
 export type SlotId = 'frame' | 'symbol' | 'tribe'
 
-export type StyleId = 'tdt-turkuaz' | 'antik-tunc' | 'gece-lacivert'
+export type StyleId = 'acik-turkuaz' | 'antik-tunc' | 'gece-lacivert'
 
 /** Normalize edilmiş motif; `body` doğrudan SVG'ye gömülebilir. */
 export interface Motif {
@@ -13,6 +13,8 @@ export interface Motif {
   period: string
   blurb: string
   history: string
+  /** Kısa akademik kaynak künyeleri; kartın altında gösterilir. */
+  citations: string[]
   /** Yalnızca `frame` motiflerinde dolu: kuşakta kaç kez tekrarlanacağı. */
   repeat: number | null
   /** [x, y, genişlik, yükseklik] — 400x400 kaynak uzayında. */
@@ -48,22 +50,10 @@ export interface OrkhonMap {
   approximations: Record<string, string>
 }
 
-export interface CertificateText {
-  body: string
-  footer: string
-  full: string
-}
-
 export interface SealSpecPayload {
   frameId: string | null
   symbolId: string | null
   tribeId: string | null
   latinName: string
   styleId: StyleId
-}
-
-export interface ShareRecord {
-  code: string
-  spec: SealSpecPayload
-  createdAt?: string
 }
