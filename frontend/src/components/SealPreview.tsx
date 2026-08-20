@@ -41,7 +41,7 @@ export default function SealPreview({
       </motion.div>
 
       {emptyHint && (
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center p-10">
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center p-6 sm:p-10">
           <p className="max-w-[15rem] rounded-2xl bg-[var(--color-abyss)]/85 px-5 py-4 text-center text-sm leading-relaxed text-[var(--color-parchment)] ring-1 ring-[var(--color-line)] backdrop-blur-sm">
             {emptyHint}
           </p>

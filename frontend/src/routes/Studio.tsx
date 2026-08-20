@@ -92,13 +92,13 @@ export default function Studio() {
   const isEmpty = motifCount === 0 && selection.latinName.trim() === ''
 
   return (
-    <div className="flex min-h-screen flex-col xl:h-screen xl:overflow-hidden">
-      <header className="flex shrink-0 items-center gap-6 border-b border-[var(--color-line)] px-6 py-4">
-        <div className="flex items-center gap-4">
+    <div className="flex min-h-dvh flex-col xl:h-dvh xl:overflow-hidden">
+      <header className="flex shrink-0 items-center gap-4 border-b border-[var(--color-line)] px-4 py-3 sm:gap-6 sm:px-6 sm:py-4">
+        <div className="flex min-w-0 items-center gap-3 sm:gap-4">
           <Link to="/" aria-label="Ana sayfaya dön">
-            <Logo size={38} />
+            <Logo size={36} />
           </Link>
-          <div>
+          <div className="min-w-0">
             <h1 className="text-lg leading-tight">Atölye</h1>
             <p className="text-xs text-[var(--color-muted)]">
               Üç katman seçin, mührünüz anında kurulsun
@@ -107,9 +107,8 @@ export default function Studio() {
         </div>
       </header>
 
-      <main className="grid flex-1 gap-8 px-6 py-6 xl:min-h-0 xl:grid-cols-[minmax(0,1fr)_25rem] xl:gap-10">
-        {/* Sol sütun: seçim şeritleri ve tarihçe. Uzun metin için bağımsız kayar. */}
-        <div className="flex flex-col gap-6 xl:min-h-0 xl:overflow-y-auto xl:pr-3">
+      <main className="grid flex-1 gap-6 px-4 py-4 pb-28 sm:px-6 sm:py-6 xl:min-h-0 xl:grid-cols-[minmax(0,1fr)_25rem] xl:gap-10 xl:pb-6">
+        <div className="order-2 flex flex-col gap-6 xl:order-1 xl:min-h-0 xl:overflow-y-auto xl:pr-3">
           {catalog.slots.map((group, index) => (
             <MotifStrip
               key={group.id}
@@ -130,9 +129,7 @@ export default function Studio() {
           <DetailCard motifs={selectedMotifs} />
         </div>
 
-        {/* Sağ sütun: canlı önizleme ve kişiselleştirme.
-            Onay düğmesi kaydırma alanının dışında; hiçbir zaman içeriği örtmez. */}
-        <aside className="flex flex-col gap-5 xl:min-h-0">
+        <aside className="order-1 flex flex-col gap-5 xl:order-2 xl:min-h-0">
           <div className="flex flex-col gap-5 xl:min-h-0 xl:flex-1 xl:gap-4 xl:overflow-y-auto xl:pr-1">
             <div className="relative mx-auto w-full max-w-[21rem]">
               <SealPreview
@@ -140,7 +137,7 @@ export default function Studio() {
                 label="Mühür simülasyonu"
                 emptyHint={
                   isEmpty
-                    ? 'Soldan bir kuşak, arma veya damga seçin; mühür burada belirsin.'
+                    ? 'Bir kuşak, arma veya damga seçin; mühür burada belirsin.'
                     : null
                 }
               />
@@ -159,7 +156,10 @@ export default function Studio() {
             <StylePicker value={selection.styleId} onChange={handleStyle} />
           </div>
 
-          <motion.div layout={!reduceMotion} className="flex shrink-0 flex-col gap-2">
+          <motion.div
+            layout={!reduceMotion}
+            className="fixed inset-x-0 bottom-0 z-20 flex shrink-0 flex-col gap-2 border-t border-[var(--color-line)] bg-[var(--color-abyss)]/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md sm:px-6 xl:static xl:inset-auto xl:border-0 xl:bg-transparent xl:px-0 xl:pt-0 xl:pb-0 xl:backdrop-blur-none"
+          >
             <button
               type="button"
               onClick={handleConfirm}

@@ -91,23 +91,23 @@ export default function Certificate() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="flex items-center justify-between gap-6 border-b border-[var(--color-line)] px-6 py-4">
-        <div className="flex items-center gap-4">
+    <div className="flex min-h-dvh flex-col">
+      <header className="flex items-center justify-between gap-3 border-b border-[var(--color-line)] px-4 py-3 sm:gap-6 sm:px-6 sm:py-4">
+        <div className="flex min-w-0 items-center gap-3 sm:gap-4">
           <Link to="/" aria-label="Ana sayfaya dön">
-            <Logo size={38} />
+            <Logo size={36} />
           </Link>
-          <div>
+          <div className="min-w-0">
             <h1 className="text-lg leading-tight">Sertifika</h1>
             <p className="text-xs text-[var(--color-muted)]">Filigransız resmî çıktı</p>
           </div>
         </div>
-        <Link to="/atolye" className="btn-ghost">
+        <Link to="/atolye" className="btn-ghost shrink-0 px-3 py-2 text-sm sm:px-6 sm:py-3">
           ← Düzenle
         </Link>
       </header>
 
-      <main className="mx-auto grid w-full max-w-6xl flex-1 items-center gap-12 px-6 py-10 lg:grid-cols-[0.95fr_1.05fr]">
+      <main className="mx-auto grid w-full max-w-6xl flex-1 items-center gap-8 px-4 py-6 sm:px-6 sm:py-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-12">
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -126,7 +126,7 @@ export default function Certificate() {
           <p className="eyebrow mb-4">Anı Belgesi</p>
 
           <blockquote className="border-l-2 border-[var(--color-turkuaz)] pl-5">
-            <p className="font-[family-name:var(--font-display)] text-[1.6rem] leading-snug text-[var(--color-parchment)]">
+            <p className="font-[family-name:var(--font-display)] text-[1.25rem] leading-snug text-[var(--color-parchment)] sm:text-[1.6rem]">
               {certificate.body}
             </p>
             {certificate.footer ? (
@@ -149,17 +149,17 @@ export default function Certificate() {
             </div>
           </dl>
 
-          <div className="mt-9 flex flex-wrap items-center gap-3">
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <button
               type="button"
               onClick={handleDownload}
               disabled={downloading}
-              className="btn-primary"
+              className="btn-primary w-full sm:w-auto"
             >
               {downloading ? 'Hazırlanıyor…' : 'HD mührü indir'}
             </button>
 
-            <button type="button" onClick={handleShare} className="btn-ghost">
+            <button type="button" onClick={handleShare} className="btn-ghost w-full sm:w-auto">
               {shareCopied ? 'Link kopyalandı ✓' : 'Paylaşım linki oluştur'}
             </button>
           </div>

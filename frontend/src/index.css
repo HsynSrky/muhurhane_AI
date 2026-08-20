@@ -32,11 +32,14 @@
 
   html {
     -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
   }
 
   body {
     margin: 0;
-    min-height: 100vh;
+    min-height: 100dvh;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
     background:
       radial-gradient(120% 90% at 50% -10%, #10404d 0%, transparent 55%),
       radial-gradient(90% 70% at 100% 100%, #0a2b34 0%, transparent 60%),
@@ -166,6 +169,9 @@
 /* Yatay motif şeritlerinde kaydırma çubuğu görsel gürültü yaratıyor. */
 .scroll-x {
   overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
   scrollbar-width: thin;
   scrollbar-color: var(--color-line) transparent;
 }

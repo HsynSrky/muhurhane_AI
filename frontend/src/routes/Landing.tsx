@@ -56,13 +56,13 @@ export default function Landing() {
   }, [catalog])
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="mx-auto flex w-full max-w-6xl items-center px-6 py-6">
+    <div className="flex min-h-dvh flex-col">
+      <header className="mx-auto flex w-full max-w-6xl items-center px-4 py-5 sm:px-6 sm:py-6">
         <Logo />
       </header>
 
-      <main className="mx-auto flex w-full max-w-6xl flex-1 items-center px-6 py-10">
-        <div className="grid w-full items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+      <main className="mx-auto flex w-full max-w-6xl flex-1 items-center px-4 py-6 sm:px-6 sm:py-10">
+        <div className="grid w-full items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
           <motion.section
             initial={reduceMotion ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ export default function Landing() {
         </div>
       </main>
 
-      <footer className="mx-auto w-full max-w-6xl px-6 pb-8">
+      <footer className="mx-auto w-full max-w-6xl px-4 pb-[max(2rem,env(safe-area-inset-bottom))] sm:px-6 sm:pb-8">
         <p className="border-t border-[var(--color-line)] pt-5 text-[0.72rem] leading-relaxed text-[var(--color-muted)]">
           Mühürhane, Anadolu Selçuklu motiflerini tarayıcıda birleştiren bir
           damga atölyesidir. Üretken yapay zekâ modeli kullanmaz. Tarihçeler TDV
