@@ -1,25 +1,45 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 
 import Logo from '@/components/Logo'
 import SealPreview from '@/components/SealPreview'
 import { buildCertificateText } from '@/data/certificate'
-import { buildShareUrl } from '@/data/shareLink'
+import { buildShareUrl, specFromSearchParams } from '@/data/shareLink'
 import { buildFileName, renderSealPng, triggerDownload } from '@/seal/raster'
 import { useSeal } from '@/state/sealStore'
 import { track, trackOnce } from '@/state/session'
 
 export default function Certificate() {
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
   const reduceMotion = useReducedMotion()
-  const { catalog, selection, composition, finalSvg, spec, motifCount, frame, symbol, tribe } =
-    useSeal()
+  const {
+    catalog,
+    selection,
+    composition,
+    finalSvg,
+    spec,
+    motifCount,
+    frame,
+    symbol,
+    tribe,
+    applySpec,
+  } = useSeal()
 
   const [downloading, setDownloading] = useState(false)
   const [downloadError, setDownloadError] = useState<string | null>(null)
   const [shareUrl, setShareUrl] = useState<string | null>(null)
   const [shareCopied, setShareCopied] = useState(false)
+
+  const shareApplied = useRef(false)
+  useLayoutEffect(() => {
+    if (shareApplied.current) return
+    const incoming = specFromSearchParams(searchParams)
+    if (!incoming) return
+    shareApplied.current = true
+    applySpec(incoming, { confirmed: true })
+  }, [searchParams, applySpec])
 
   const confirmed = selection.confirmed && motifCount > 0
 

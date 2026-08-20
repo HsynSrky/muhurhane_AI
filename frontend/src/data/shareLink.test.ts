@@ -29,9 +29,9 @@ describe('shareLink', () => {
     expect(specFromSearchParams(new URLSearchParams())).toBeNull()
   })
 
-  it('paylaşım URL’si atölye yolunu taşır', () => {
+  it('paylaşım URL’si sertifika yolunu taşır', () => {
     const url = buildShareUrl('https://ornek.test', spec)
-    expect(url.startsWith('https://ornek.test/atolye?')).toBe(true)
+    expect(url.startsWith('https://ornek.test/sertifika?')).toBe(true)
     expect(url).toContain('n=Eren+Bey')
   })
 })

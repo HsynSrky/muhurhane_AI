@@ -40,7 +40,7 @@ Yeni motif eklediyseniz önce `python backend/scripts/normalize_motifs.py` çal�
 | `/atolye` | Stüdyo | Üç motif şeridi, isim girişi, stil seçici, filigranlı canlı önizleme |
 | `/sertifika` | Sertifika | Filigransız mühür, kişisel anı metni, HD PNG indirme, paylaşım linki |
 
-Paylaşım linki seçimleri URL’de taşır (`/atolye?f=3.1&s=1.1&t=2.1&n=Eren+Bey`). Arka uç yok.
+Paylaşım linki seçimleri URL’de taşır (`/sertifika?f=3.1&s=1.1&t=2.1&n=Eren+Bey`). Arka uç yok.
 
 Stüdyoda indirme bilerek kapalıdır (AC-05): filigranlı hâl simülasyondur; indirilebilir çıktı yalnızca onaydan sonra verilir.
 

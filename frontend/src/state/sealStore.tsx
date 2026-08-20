@@ -80,7 +80,7 @@ interface SealContextValue {
   setStyleId: (value: StyleId) => void
   confirm: () => void
   reset: () => void
-  applySpec: (spec: SealSpecPayload) => void
+  applySpec: (spec: SealSpecPayload, options?: { confirmed?: boolean }) => void
 }
 
 const SealContext = createContext<SealContextValue | null>(null)
@@ -181,14 +181,14 @@ export function SealProvider({ children }: { children: ReactNode }) {
         writeSelection(EMPTY_SELECTION)
         setSelection(EMPTY_SELECTION)
       },
-      applySpec: (incoming) =>
+      applySpec: (incoming, options) =>
         update({
           frameId: incoming.frameId,
           symbolId: incoming.symbolId,
           tribeId: incoming.tribeId,
           latinName: incoming.latinName,
           styleId: incoming.styleId,
-          confirmed: false,
+          confirmed: options?.confirmed ?? false,
         }),
     }),
     [

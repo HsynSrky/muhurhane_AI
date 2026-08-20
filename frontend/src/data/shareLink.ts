@@ -39,6 +39,6 @@ export function specFromSearchParams(params: URLSearchParams): SealSpecPayload |
 export function buildShareUrl(origin: string, spec: SealSpecPayload, baseUrl = '/'): string {
   const base = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl
   const query = specToSearchParams(spec).toString()
-  const path = `${origin}${base}/atolye`
+  const path = `${origin}${base}/sertifika`
   return query ? `${path}?${query}` : path
 }
