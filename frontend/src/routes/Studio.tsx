@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from 'framer-motion'
 import { useCallback, useEffect, useMemo, useRef } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 
@@ -9,7 +8,7 @@ import MotifStrip from '@/components/MotifStrip'
 import NameField from '@/components/NameField'
 import SealPreview from '@/components/SealPreview'
 import StylePicker from '@/components/StylePicker'
-import { specFromSearchParams } from '@/data/shareLink'
+import { specFromSearchParams, specToSearchParams } from '@/data/shareLink'
 import { useSeal } from '@/state/sealStore'
 import { track, trackOnce } from '@/state/session'
 
@@ -22,7 +21,6 @@ const SLOT_HINTS: Record<SlotId, string> = {
 export default function Studio() {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  const reduceMotion = useReducedMotion()
 
   const {
     catalog,
@@ -33,6 +31,7 @@ export default function Studio() {
     motifCount,
     orkhon,
     previewSvg,
+    spec,
     maxNameLength,
     selectMotif,
     setName,
@@ -81,8 +80,9 @@ export default function Studio() {
   const handleConfirm = useCallback(() => {
     confirm()
     track('confirmed', { motifCount, hasName: selection.latinName.trim().length > 0 })
-    navigate('/sertifika')
-  }, [confirm, motifCount, navigate, selection.latinName])
+    const query = specToSearchParams(spec).toString()
+    navigate(query ? `/sertifika?${query}` : '/sertifika')
+  }, [confirm, motifCount, navigate, selection.latinName, spec])
 
   const selectedMotifs = useMemo(
     () => [frame, symbol, tribe].filter((motif) => motif !== null),
@@ -156,10 +156,7 @@ export default function Studio() {
             <StylePicker value={selection.styleId} onChange={handleStyle} />
           </div>
 
-          <motion.div
-            layout={!reduceMotion}
-            className="fixed inset-x-0 bottom-0 z-20 flex shrink-0 flex-col gap-2 border-t border-[var(--color-line)] bg-[var(--color-abyss)]/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md sm:px-6 xl:static xl:inset-auto xl:border-0 xl:bg-transparent xl:px-0 xl:pt-0 xl:pb-0 xl:backdrop-blur-none"
-          >
+          <div className="fixed inset-x-0 bottom-0 z-20 flex shrink-0 flex-col gap-2 border-t border-[var(--color-line)] bg-[var(--color-abyss)]/95 px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-md sm:px-6 xl:static xl:inset-auto xl:border-0 xl:bg-transparent xl:px-0 xl:pt-0 xl:pb-0 xl:backdrop-blur-none">
             <button
               type="button"
               onClick={handleConfirm}
@@ -173,7 +170,7 @@ export default function Studio() {
                 ? 'Devam etmek için en az bir motif seçin.'
                 : 'HD indirme onaydan sonra açılır.'}
             </p>
-          </motion.div>
+          </div>
         </aside>
       </main>
     </div>
